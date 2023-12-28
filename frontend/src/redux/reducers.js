@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const userData = createSlice({
-   name: 'user data',
-   initialState: {
-      data: {},
-   },
-   reducers: {},
-})
-
 export const authReducer = createSlice({
    name: 'authentication',
    initialState: {
@@ -24,4 +16,17 @@ export const authReducer = createSlice({
    },
 })
 
+export const generalMenuReducer = createSlice({
+   name: 'General Menu',
+   initialState: {
+      currentMenu: 'Beranda',
+   },
+   reducers: {
+      setCurrentMenu: (state, action) => {
+         state.currentMenu = action.payload
+      },
+   },
+})
+
 export const { login, logout } = authReducer.actions
+export const { setCurrentMenu } = generalMenuReducer.actions

@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { authReducer } from './reducers'
+import { authReducer, generalMenuReducer } from './reducers'
 
 export default configureStore({
    reducer: {
-      auth: authReducer,
+      auth: authReducer.reducer,
+      generalMenu: generalMenuReducer.reducer,
    },
 })

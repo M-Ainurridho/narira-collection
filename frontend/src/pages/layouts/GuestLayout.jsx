@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
+import Navbar from '../../components/Navbar'
 
 const GuestLayout = ({ children }) => {
    return (
       <>
-         {children}
-
-         <Link to="/">Home</Link>
-         <Link to="/about">About</Link>
+         <Navbar />
+         <main className="">{children}</main>
       </>
    )
 }

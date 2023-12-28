@@ -24,7 +24,7 @@ const Card = ({ image, children }) => {
          )}
          <div className="card-img">
             <img
-               src={`https://narira-collection.vercel.app/src/assets/images/products/${image}`}
+               src={`/src/assets/images/products/${image}`}
                className="w-full h-56 object-cover object-center"
             />
          </div>

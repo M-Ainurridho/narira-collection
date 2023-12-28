@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom'
-import { products } from '../utils'
+import { bestseller } from '../utils'
+import { Fragment, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { setCurrentMenu } from '../redux/reducers'
+
+import Card from '../components/Card'
 
 const Home = () => {
+   const dispatch = useDispatch()
+
+   useEffect(() => {
+      dispatch(setCurrentMenu('Beranda'))
+   }, [])
+
    return (
       <>
          <div className="hero"></div>
@@ -18,19 +29,16 @@ const Home = () => {
                   </Link>
                </div>
                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-3">
-                  {products.map((product, i) => {
+                  {bestseller.map((product, i) => {
                      return (
-                        <div
-                           key={i}
-                           className="card relative rounded-md overflow-hidden"
-                        >
-                           <div className="card-img">
-                              <img
-                                 src={`/src/assets/images/products/${product}`}
-                                 className="w-full h-56 object-cover object-center"
-                              />
-                           </div>
-                        </div>
+                        <Fragment key={i}>
+                           <Card image={product}>
+                              <div className="flex items-center justify-between p-2 text-sm md:text-base">
+                                 <h5 className="truncate w-4/5">Baju Distro</h5>
+                                 <p>30k</p>
+                              </div>
+                           </Card>
+                        </Fragment>
                      )
                   })}
                </div>

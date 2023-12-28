@@ -6,6 +6,12 @@ export default {
          colors: {
             lilac: '#bc8ac2',
          },
+         width: {
+            '80%': '90%',
+         },
+         spacing: {
+            '45%': '45%',
+         },
       },
    },
    plugins: [],

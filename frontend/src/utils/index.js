@@ -11,5 +11,17 @@ export const products = [
    'product-3.jpg',
    'product-4.jpg',
    'product-1.jpg',
+   'product-1.jpg',
    'product-2.jpg',
+   'product-3.jpg',
+   'product-4.jpg',
+   'product-1.jpg',
+]
+
+export const bestseller = [
+   'product-1.jpg',
+   'product-2.jpg',
+   'product-3.jpg',
+   'product-4.jpg',
+   'product-1.jpg',
 ]

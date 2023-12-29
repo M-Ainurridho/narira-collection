@@ -27,12 +27,9 @@ const Products = () => {
             {products.map((product, i) => {
                return (
                   <Fragment key={i}>
-                     <Card image={product}>
+                     <Card index={i} image={product.images}>
                         <div className="flex items-center justify-between p-2 pb-5 lg:pb-4 text-sm md:text-base">
-                           <h5 className="truncate w-4/5">
-                              Lorem ipsum dolor sit amet consectetur adipisicing
-                              elit. Aspernatur, vitae.
-                           </h5>
+                           <h5 className="truncate w-4/5">{product.name}</h5>
                            <p>30k</p>
                         </div>
                         <div className="add-item absolute -bottom-5 left-45% bg-lilac rounded-full w-9 h-9 flex items-center justify-center">

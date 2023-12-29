@@ -23,13 +23,15 @@ body {
 aside {
    animation: slide 0.5s ease;
 }
-
 /* Products */
-
 
 /* Utils */
 .font-permanent-marker {
    font-family: 'Permanent Marker', cursive !important;
+}
+
+.fade-in {
+   animation: fadeIn 0.8s ease;
 }
 
 /* @import url('./styles/animations.css'); */
@@ -41,6 +43,29 @@ aside {
       transform: translateX(0);
    }
 }
+
+@keyframes fadeIn {
+   0% {
+      transform: scale(1);
+   }
+
+   25% {
+      transform: scale(1.5);
+   }
+
+   50% {
+      transform: scale(1);
+   }
+
+   75% {
+      transform: scale(1.5);
+   }
+
+   100% {
+      transform: scale(1);
+   }
+}
+
 /* Breakpoints */
 @media screen and (max-width: 1024px) {
    .hero {

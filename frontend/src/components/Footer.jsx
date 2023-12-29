@@ -3,7 +3,7 @@ import BrandIcon from './icons/BrandIcon'
 
 const Footer = () => {
    return (
-      <footer className="bg-slate-800 text-white grid md:grid-cols-3 gap-y-5 px-4 md:px-8 lg:px-16 py-10 justify-between text-sm">
+      <footer className="bg-slate-800 self-end text-white grid md:grid-cols-3 gap-y-5 px-4 md:px-8 lg:px-16 py-10 md:py-14 justify-between text-sm">
          <div>
             <h5 className="text-lilac text-lg font-bold mb-2">
                NARIRA COLLECTION

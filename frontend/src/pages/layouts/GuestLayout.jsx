@@ -3,7 +3,7 @@ import Footer from '../../components/Footer'
 
 const GuestLayout = ({ children }) => {
    return (
-      <div className="grid">
+      <div className="grid min-h-screen">
          <Navbar />
          <main className="">{children}</main>
          <Footer />

@@ -32,9 +32,11 @@ const Home = () => {
                   {bestseller.map((product, i) => {
                      return (
                         <Fragment key={i}>
-                           <Card image={product}>
+                           <Card index={i} image={product.images}>
                               <div className="flex items-center justify-between p-2 text-sm md:text-base">
-                                 <h5 className="truncate w-4/5">Baju Distro</h5>
+                                 <h5 className="truncate w-4/5">
+                                    {product.name}
+                                 </h5>
                                  <p>30k</p>
                               </div>
                            </Card>

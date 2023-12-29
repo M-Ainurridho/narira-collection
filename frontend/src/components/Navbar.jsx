@@ -51,7 +51,7 @@ const Navbar = () => {
                   />
                </div>
                <div className="card-body">
-                  <h5 className="text-sm ">{name}</h5>
+                  <h5 className="text-sm w-36 truncate">{name}</h5>
                   <p className="text-xs w-36 truncate text-neutral-500">
                      {description}
                   </p>

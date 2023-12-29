@@ -13,7 +13,7 @@ const Products = () => {
    }, [])
 
    return (
-      <section id="products" className="mt-20 mb-4 px-4 md:px-8 lg:px-16 py-6">
+      <section id="products" className="mt-20 mb-10 px-4 md:px-8 lg:px-16 py-6">
          <div className="flex justify-between items-center">
             <p className="md:text-lg font-light text-neutral-500">
                Menampilkan 21 Items

@@ -5,6 +5,7 @@ export default {
       extend: {
          colors: {
             lilac: '#bc8ac2',
+            'lilac-hover': '#b975c1',
          },
          width: {
             '80%': '90%',

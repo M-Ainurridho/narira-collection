@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { menus, products } from '../utils'
@@ -8,6 +8,7 @@ import Sidebar from './Sidebar'
 
 const Navbar = () => {
    const { currentMenu } = useSelector((state) => state.generalMenu)
+   const navigate = useNavigate()
 
    const [dropmenu, setDropmenu] = useState(false)
    const [isSearch, setIsSearch] = useState(false)
@@ -123,11 +124,12 @@ const Navbar = () => {
                      </span>
                   )}
                </div>
-               <div className="login">
-                  <button className="bg-lilac text-white p-2 px-4 rounded-full shadow">
-                     Login
-                  </button>
-               </div>
+               <button
+                  className="bg-lilac hover:bg-lilac-hover duration-100 text-white p-2 px-4 rounded-full shadow"
+                  onClick={() => navigate('/login')}
+               >
+                  Login
+               </button>
             </div>
          </nav>
 

@@ -23,7 +23,12 @@ body {
 aside {
    animation: slide 0.5s ease;
 }
-/* Products */
+
+/* Login */
+#login {
+   background-image: url('./assets/images/backgrounds/login-bg.jpg');
+   background-size: cover;
+}
 
 /* Utils */
 .font-permanent-marker {
@@ -69,6 +74,10 @@ aside {
 /* Breakpoints */
 @media screen and (max-width: 1024px) {
    .hero {
+      background-position: center !important;
+   }
+
+   #login {
       background-position: center !important;
    }
 }

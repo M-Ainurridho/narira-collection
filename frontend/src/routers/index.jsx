@@ -1,10 +1,14 @@
 import { Route, Routes } from 'react-router'
 
+import GuestLayout from '../pages/layouts/GuestLayout'
 import Home from '../pages/Home'
 import Products from '../pages/Products'
 import About from '../pages/About'
+
+import Login from '../pages/auth/Login'
+import Register from '../pages/auth/Register'
+
 import NotFound from '../pages/errors/404'
-import GuestLayout from '../pages/layouts/GuestLayout'
 
 const Router = () => {
    return (
@@ -33,6 +37,8 @@ const Router = () => {
             }
             path="/about"
          ></Route>
+         <Route element={<Login />} path="/login"></Route>
+         <Route element={<Register />} path="/register"></Route>
          <Route element={<NotFound />} path="*"></Route>
       </Routes>
    )

@@ -32,6 +32,11 @@ body {
     background-size: cover;
 }
 
+/* Product Detail */
+.wide-img {
+    height: 450px !important;
+}
+
 /* Utils */
 .font-permanent-marker {
     font-family: "Permanent Marker", cursive !important;

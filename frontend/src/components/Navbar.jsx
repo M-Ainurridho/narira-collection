@@ -147,13 +147,13 @@ const Navbar = () => {
             <SidebarMenu
                 dropmenu={dropmenu}
                 currentMenu={currentMenu}
-                setDropmenu={() => setDropmenu(!dropmenu)}
+                onClick={() => setDropmenu(!dropmenu)}
             />
         </>
     );
 };
 
-const SidebarMenu = ({ dropmenu, currentMenu, setDropmenu }) => {
+const SidebarMenu = ({ dropmenu, currentMenu, onClick }) => {
     return (
         <>
             {dropmenu && (
@@ -166,7 +166,7 @@ const SidebarMenu = ({ dropmenu, currentMenu, setDropmenu }) => {
                             <box-icon
                                 name="x"
                                 size="md"
-                                onClick={setDropmenu}
+                                onClick={onClick}
                             ></box-icon>
                         </div>
                     </div>

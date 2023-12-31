@@ -9,6 +9,7 @@ import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 
 import NotFound from '../pages/errors/404'
+import Dashboard from '../pages/member/Dashboard'
 
 const Router = () => {
    return (
@@ -39,6 +40,8 @@ const Router = () => {
          ></Route>
          <Route element={<Login />} path="/login"></Route>
          <Route element={<Register />} path="/register"></Route>
+
+         <Route element={<Dashboard />} path="/member"></Route>
          <Route element={<NotFound />} path="*"></Route>
       </Routes>
    )

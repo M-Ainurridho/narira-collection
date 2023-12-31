@@ -1,3 +1,6 @@
+import { current } from '@reduxjs/toolkit'
+import { postData } from '../api'
+
 export const menus = [
    { name: 'Beranda', path: '/' },
    { name: 'Produk', path: '/products' },
@@ -13,7 +16,7 @@ export const products = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 250000,
    },
    {
       id: 2,
@@ -22,7 +25,7 @@ export const products = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 50000,
    },
    {
       id: 3,
@@ -31,7 +34,7 @@ export const products = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 125000,
    },
    {
       id: 4,
@@ -40,7 +43,7 @@ export const products = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 99000,
    },
    {
       id: 5,
@@ -58,7 +61,7 @@ export const products = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 10000,
    },
    {
       id: 7,
@@ -67,7 +70,7 @@ export const products = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 45000,
    },
    {
       id: 8,
@@ -76,27 +79,9 @@ export const products = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 5000,
    },
 ]
-
-const searchProduct = (keyword) => {
-   const filtered = products.filter((product) =>
-      product.name.toLowerCase().match(keyword.toLowerCase())
-   )
-
-   console.log(filtered)
-}
-
-const item = {
-   id: 1,
-   name: 'Baju Distro Custom',
-   images: ['product-1.jpg'],
-   description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
-   category: 'shirt',
-   price: 25000,
-}
 
 export const bestseller = [
    {
@@ -106,7 +91,7 @@ export const bestseller = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 250000,
    },
    {
       id: 2,
@@ -115,7 +100,7 @@ export const bestseller = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 50000,
    },
    {
       id: 3,
@@ -124,7 +109,7 @@ export const bestseller = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 125000,
    },
    {
       id: 4,
@@ -133,7 +118,7 @@ export const bestseller = [
       description:
          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae',
       category: 'shirt',
-      price: 25000,
+      price: 99000,
    },
    {
       id: 5,
@@ -145,3 +130,34 @@ export const bestseller = [
       price: 25000,
    },
 ]
+
+export const rupiah = (price, K = false) => {
+   let currency = new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+   }).format(price)
+
+   if (K) {
+      currency = currency.split('.')[0].split('Rp')[1]
+      currency = `${currency}k`
+   } else {
+      currency = currency.split(',')[0]
+   }
+
+   return currency
+}
+
+export const exchangeToken = async () => {
+   const token = localStorage.getItem('nariratoken')
+
+   if (token) {
+      const sendToken = await postData(
+         'http://localhost:3000/auth/exchangetoken'
+      )
+
+      return sendToken
+   } else {
+      delete axios.defaults.headers.common['auth-token']
+      return 'Not found token'
+   }
+}

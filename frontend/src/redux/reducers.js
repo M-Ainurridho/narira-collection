@@ -4,14 +4,17 @@ export const authReducer = createSlice({
    name: 'authentication',
    initialState: {
       isLogin: false,
+      user: {},
    },
    reducers: {
       login: (state, action) => {
-         state.isLogin = action.payload
+         state.isLogin = action.payload.isLogin
+         state.user = action.payload.user
       },
 
-      logout: (state, action) => {
-         state.isLogin = action.payload
+      logout: (state) => {
+         state.isLogin = false
+         state.user = {}
       },
    },
 })
@@ -28,5 +31,20 @@ export const generalMenuReducer = createSlice({
    },
 })
 
+export const alertReducer = createSlice({
+   name: 'alert message',
+   initialState: {
+      status: null,
+      msg: '',
+   },
+   reducers: {
+      setAlert: (state, action) => {
+         state.status = action.payload.status
+         state.msg = action.payload.msg
+      },
+   },
+})
+
 export const { login, logout } = authReducer.actions
 export const { setCurrentMenu } = generalMenuReducer.actions
+export const { setAlert } = alertReducer.actions

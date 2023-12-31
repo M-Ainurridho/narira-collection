@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from 'react'
-import { products } from '../utils'
+import { products, rupiah } from '../utils'
 import { useDispatch } from 'react-redux'
 import { setCurrentMenu } from '../redux/reducers'
 
@@ -16,7 +16,7 @@ const Products = () => {
       <section id="products" className="mt-20 mb-10 px-4 md:px-8 lg:px-16 py-6">
          <div className="flex justify-between items-center">
             <p className="md:text-lg font-light text-neutral-500">
-               Menampilkan 21 Items
+               Menampilkan {products.length} Items
             </p>
             <div className="filter flex items-center border px-4 py-2 rounded-full">
                <box-icon name="slider" size="sm"></box-icon>
@@ -24,15 +24,15 @@ const Products = () => {
             </div>
          </div>
          <div className="items grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-10 mt-2">
-            {products.map((product, i) => {
+            {products.map(({ name, images, price }, i) => {
                return (
                   <Fragment key={i}>
-                     <Card index={i} image={product.images}>
+                     <Card index={i} name={name} image={images}>
                         <div className="flex items-center justify-between p-2 pb-5 lg:pb-4 text-sm md:text-base">
-                           <h5 className="truncate w-4/5">{product.name}</h5>
-                           <p>30k</p>
+                           <h5 className="truncate w-4/5">{name}</h5>
+                           <p>{rupiah(price, true)}</p>
                         </div>
-                        <div className="add-item absolute -bottom-5 left-45% bg-lilac rounded-full w-9 h-9 flex items-center justify-center">
+                        <div className="add-item absolute -bottom-5 left-45% bg-lilac hover:bg-lilac-hover duration-100 rounded-full w-9 h-9 flex items-center justify-center">
                            <box-icon name="plus" color="white"></box-icon>
                         </div>
                      </Card>

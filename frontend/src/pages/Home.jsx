@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { bestseller } from '../utils'
+import { bestseller, rupiah } from '../utils'
 import { Fragment, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCurrentMenu } from '../redux/reducers'
@@ -19,7 +19,10 @@ const Home = () => {
 
          <section id="bestseller" className="px-4 md:px-8 lg:px-16 py-8">
             <div className="container">
-               <div className="flex justify-between items-end">
+               <div
+                  className="flex justify-between items-end
+               "
+               >
                   <h3 className="font-semibold text-xl">Produk Terlaris</h3>
                   <Link
                      to="/"
@@ -29,15 +32,13 @@ const Home = () => {
                   </Link>
                </div>
                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-3">
-                  {bestseller.map((product, i) => {
+                  {bestseller.map(({ name, images, price }, i) => {
                      return (
                         <Fragment key={i}>
-                           <Card index={i} image={product.images}>
+                           <Card index={i} name={name} image={images}>
                               <div className="flex items-center justify-between p-2 text-sm md:text-base">
-                                 <h5 className="truncate w-4/5">
-                                    {product.name}
-                                 </h5>
-                                 <p>30k</p>
+                                 <h5 className="truncate w-4/5">{name}</h5>
+                                 <p>{rupiah(price, true)}</p>
                               </div>
                            </Card>
                         </Fragment>

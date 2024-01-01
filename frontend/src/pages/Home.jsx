@@ -32,10 +32,10 @@ const Home = () => {
                   </Link>
                </div>
                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-3">
-                  {bestseller.map(({ name, images, price }, i) => {
+                  {bestseller.map(({ id, name, images, price }, i) => {
                      return (
                         <Fragment key={i}>
-                           <Card index={i} name={name} image={images}>
+                           <Card index={i} id={id} name={name} image={images}>
                               <div className="flex items-center justify-between p-2 text-sm md:text-base">
                                  <h5 className="truncate w-4/5">{name}</h5>
                                  <p>{rupiah(price, true)}</p>

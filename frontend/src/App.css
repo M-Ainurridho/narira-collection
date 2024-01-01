@@ -34,7 +34,7 @@ body {
 
 /* Product Detail */
 .wide-img {
-    height: 450px !important;
+    height: 480px !important;
 }
 
 /* Utils */
@@ -107,5 +107,15 @@ body {
 
     #register {
         background-position: center !important;
+    }
+
+    .wide-img {
+        height: 800px !important;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .wide-img {
+        height: 480px !important;
     }
 }

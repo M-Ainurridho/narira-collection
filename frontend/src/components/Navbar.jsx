@@ -9,6 +9,7 @@ import Cart from "./sidebars/Cart";
 
 const Navbar = () => {
     const { currentMenu } = useSelector((state) => state.generalMenu);
+    const { carts } = useSelector((state) => state.cart);
     const navigate = useNavigate();
 
     const [dropmenu, setDropmenu] = useState(false);
@@ -28,8 +29,12 @@ const Navbar = () => {
     });
 
     useEffect(() => {
+        if (cart) {
+            setCart(false);
+        }
+
         search.length >= 3 ? productFilter() : setSearchResult([]);
-    }, [search]);
+    }, [search, currentMenu]);
 
     const productFilter = () => {
         const filtered = products.filter((product) =>
@@ -90,12 +95,17 @@ const Navbar = () => {
                     <Navigation styling="px-3" currentMenu={currentMenu} />
                 </div>
                 <div className="navbar-end flex">
-                    <span
-                        className="flex items-center cursor-pointer"
+                    <div
+                        className="relative flex items-center cursor-pointer"
                         onClick={() => setCart(!cart)}
                     >
-                        <box-icon name="cart" size="sm"></box-icon>
-                    </span>
+                        <i className="bx bx-cart text-2xl"></i>
+                        {carts.length > 0 && (
+                            <div className="cart-amount bg-lilac text-white absolute top-0.5 -right-2 w-5 h-5 leading-4 text-center rounded-full tracking-tighter">
+                                <span className="text-xs">{carts.length}</span>
+                            </div>
+                        )}
+                    </div>
                     <div className="search-box flex mx-4">
                         {isSearch ? (
                             <div className="relative">

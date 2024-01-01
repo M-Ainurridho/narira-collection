@@ -17,6 +17,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 250000,
+        stock: 10,
     },
     {
         id: 2,
@@ -27,6 +28,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 50000,
+        stock: 10,
     },
     {
         id: 3,
@@ -42,6 +44,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 125000,
+        stock: 10,
     },
     {
         id: 4,
@@ -52,6 +55,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 99000,
+        stock: 10,
     },
     {
         id: 5,
@@ -62,6 +66,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 25000,
+        stock: 10,
     },
     {
         id: 6,
@@ -72,6 +77,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 10000,
+        stock: 10,
     },
     {
         id: 7,
@@ -82,6 +88,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 45000,
+        stock: 10,
     },
     {
         id: 8,
@@ -92,6 +99,7 @@ export const products = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
         price: 5000,
+        stock: 10,
     },
 ];
 

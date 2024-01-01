@@ -11,7 +11,7 @@ const Sidebar = ({ position, children }) => {
 
     return (
         <aside
-            className={`fixed top-0 bottom-0 slider-right ${position}-0 z-20 w-80 bg-lilac`}
+            className={`fixed top-0 bottom-0 slider-right ${position}-0 z-20 w-96 bg-white border overflow-y-auto`}
         >
             {children}
         </aside>

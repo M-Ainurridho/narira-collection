@@ -1,20 +1,32 @@
-import { useSelector } from "react-redux";
-import { rupiah } from "../../utils";
+import { useDispatch, useSelector } from "react-redux";
+import { firstWordUppercase, rupiah } from "../../utils";
 import Sidebar from "./Sidebar";
+import { replaceCart } from "../../redux/reducers";
 
 const Cart = ({ onClick }) => {
     const { carts } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    const deleteCart = ({ id, size, color }) => {
+        let filtered = carts.filter(
+            (cart) =>
+                cart.id !== id || cart.size !== size || cart.color !== color
+        );
+
+        dispatch(replaceCart(filtered));
+    };
 
     const allCarts = carts.map((cart, i) => {
         return (
             <div
+                key={i}
                 className={`card flex gap-x-2 pb-3 ${
                     i != 0 && "pt-3"
                 } border-b border-b-lilac`}
             >
                 <div className="card-image basis-1/5">
                     <img
-                        src={`/src/assets/images/products/${cart.images[0]}`}
+                        src={`/src/assets/images/products/${cart.image}`}
                         alt="product-2"
                         className="w-full h-20 object-cover rounded-md"
                     />
@@ -25,20 +37,23 @@ const Cart = ({ onClick }) => {
                         <div className="flex gap-x-3">
                             <p className="text-xs text-neutral-900/50">
                                 Size
-                                <span className="text-neutral-900 font-semibold ms-0.5">
-                                    XL
+                                <span className="text-neutral-900 font-semibold ms-1">
+                                    {cart.size}
                                 </span>
                             </p>
                             <p className="text-xs text-neutral-400">
                                 Color
-                                <span className="text-neutral-900 font-semibold ms-0.5">
-                                    Blue
+                                <span className="text-neutral-900 font-semibold ms-1">
+                                    {firstWordUppercase(cart.color)}
                                 </span>
                             </p>
                         </div>
                         <div>
                             <i className="bx bx-heart text-xl me-1 cursor-pointer"></i>
-                            <i className="bx bxs-trash text-xl cursor-pointer"></i>
+                            <i
+                                className="bx bxs-trash text-xl cursor-pointer"
+                                onClick={() => deleteCart(cart)}
+                            ></i>
                         </div>
                     </div>
                     <div className="flex justify-between items-center text-sm text-neutral-900/50">

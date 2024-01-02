@@ -54,10 +54,14 @@ export const cartReducer = createSlice({
         addCart: (state, action) => {
             state.carts.push(action.payload);
         },
+
+        replaceCart: (state, action) => {
+            state.carts = action.payload;
+        },
     },
 });
 
 export const { login, logout } = authReducer.actions;
 export const { setCurrentMenu } = generalMenuReducer.actions;
 export const { setAlert } = alertReducer.actions;
-export const { addCart } = cartReducer.actions;
+export const { addCart, replaceCart } = cartReducer.actions;

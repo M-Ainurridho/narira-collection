@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react";
-import { products, rupiah } from "../utils";
+import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
-import { addCart, setCurrentMenu } from "../redux/reducers";
 
-import BreadCrumbs from "../components/Breadcrumbs";
+import { products, rupiah } from "../../utils";
+import { addCart, setCurrentMenu } from "../../redux/reducers";
+
+import BreadCrumbs from "../../components/Breadcrumbs";
 
 const ProductDetail = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     let [imgIndex, setImgIndex] = useState(0);
     let [quantity, setQuantity] = useState(1);
+    let [currentSize, setCurrentSize] = useState({});
+    let [allSize, setAllSize] = useState([]);
+    let [currentColor, setCurrentColor] = useState("");
 
     const dispatch = useDispatch();
 
@@ -19,6 +23,10 @@ const ProductDetail = () => {
             dispatch(setCurrentMenu("Produk Detail"));
 
             const found = products.find((product) => product.id == id);
+            setAllSize(found.availableItems[imgIndex].availableSizes);
+
+            setCurrentSize(found.availableItems[0].availableSizes[0]);
+            setCurrentColor(found.availableItems[0].color);
             setItem(found);
         }
 
@@ -28,24 +36,85 @@ const ProductDetail = () => {
     }, [quantity]);
 
     const allImageItems =
-        item?.images != undefined &&
-        item.images.map((img, i) => {
+        item?.availableItems &&
+        item.availableItems.map((item, i) => {
             return (
                 <img
                     key={i}
-                    src={`/src/assets/images/products/${img}`}
-                    alt={img}
+                    src={`/src/assets/images/products/${item.image}`}
+                    alt={item.image}
                     className={`w-full h-24 sm:h-36 lg:h-24 rounded-md cursor-pointer object-cover ${
                         imgIndex === i && "border border-2 border-neutral-700"
                     }`}
-                    onClick={() => setImgIndex(i)}
+                    onClick={() => {
+                        setCurrentSize(item.availableSizes[0]);
+                        setAllSize(item.availableSizes);
+                        setCurrentColor(item.color);
+                        setImgIndex(i);
+                    }}
                 />
             );
         });
 
+    const colorPicker =
+        item?.availableItems &&
+        item.availableItems.map((item, i) => {
+            return (
+                <p
+                    key={i}
+                    className={`inline-block px-1.5 ${
+                        item.color === currentColor &&
+                        "pt-1 bg-white shadow rounded-md"
+                    } cursor-pointer`}
+                    onClick={() => {
+                        setCurrentSize(item.availableSizes[0]);
+                        setAllSize(item.availableSizes);
+                        setCurrentColor(item.color);
+                        setImgIndex(i);
+                    }}
+                >
+                    <span
+                        className="inline-block w-5 h-5 rounded-full"
+                        style={{
+                            backgroundColor: item.color,
+                        }}
+                    ></span>
+                </p>
+            );
+        });
+
+    const availableSizes =
+        allSize.length > 0 &&
+        allSize.map((item, sizeIndex) => {
+            return (
+                <span
+                    key={sizeIndex}
+                    className={`px-3 cursor-pointer ${
+                        item.size == currentSize.size
+                            ? "py-1 bg-white text-neutral-900 rounded-md shadow"
+                            : "text-neutral-900/50"
+                    }`}
+                    onClick={() => {
+                        setCurrentSize(item);
+                    }}
+                >
+                    {item.size}
+                </span>
+            );
+        });
+
     const addNewCart = () => {
-        const newItem = item;
-        newItem.quantity = quantity;
+        const newItem = {
+            id: item.id,
+            name: item.name,
+            image: item.availableItems[imgIndex].image,
+            category: item.category,
+            size: currentSize.size,
+            color: currentColor,
+            quantity: quantity,
+            price: item.price,
+            description: item.description,
+        };
 
         dispatch(addCart(newItem));
     };
@@ -61,8 +130,8 @@ const ProductDetail = () => {
                     <div className="self-start">
                         <img
                             src={`/src/assets/images/products/${
-                                item?.images != undefined &&
-                                item.images[imgIndex]
+                                item?.availableItems != undefined &&
+                                item.availableItems[imgIndex].image
                             }`}
                             alt="product1"
                             className="wide-img rounded-lg w-full object-cover object-center"
@@ -99,35 +168,26 @@ const ProductDetail = () => {
                                 <h6 className="text-neutral-400 mb-2 tracking-wide">
                                     PILIH UKURAN
                                 </h6>
-                                <div className="inline-block bg-neutral-100 border rounded-md py-1.5">
-                                    <span className="px-3 text-neutral-500 cursor-pointer">
-                                        S
-                                    </span>
-                                    <span className="py-1 px-3 bg-white rounded-md shadow cursor-pointer">
-                                        M
-                                    </span>
-                                    <span className="px-3 text-neutral-500 cursor-pointer">
-                                        L
-                                    </span>
-                                    <span className="px-3 text-neutral-500 cursor-pointer">
-                                        XL
-                                    </span>
+                                <div className="inline-block bg-neutral-100 border rounded-md py-1.5 px-0.5">
+                                    {availableSizes}
                                 </div>
+
+                                {currentSize?.stock ? (
+                                    <span className="ms-3">
+                                        Tersedia {currentSize.stock} lagi
+                                    </span>
+                                ) : (
+                                    <span className="ms-3 text-red-500">
+                                        HABIS!!!
+                                    </span>
+                                )}
                             </div>
                             <div className="choose-color mb-4 text-sm">
                                 <h6 className="text-neutral-400 mb-2 tracking-wide">
                                     WARNA
                                 </h6>
-                                <div className="inline-block bg-neutral-100 border rounded-md pt-1 pb-1">
-                                    <p className="inline-block px-1.5 cursor-pointer">
-                                        <span className="inline-block bg-neutral-200 w-5 h-5 rounded-full"></span>
-                                    </p>
-                                    <p className="inline-block px-1.5 pt-1 bg-white shadow rounded-md cursor-pointer">
-                                        <span className="inline-block bg-purple-600 w-5 h-5 rounded-full"></span>
-                                    </p>
-                                    <p className="inline-block px-1.5 cursor-pointer">
-                                        <span className="inline-block bg-red-700 w-5 h-5 rounded-full"></span>
-                                    </p>
+                                <div className="inline-block bg-neutral-100 border rounded-md pt-1 pb-1 px-0.5">
+                                    {colorPicker}
                                 </div>
                             </div>
                             <div className="description text-sm">

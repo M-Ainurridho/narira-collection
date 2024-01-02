@@ -2,9 +2,11 @@ import { Route, Routes } from "react-router";
 
 import GuestLayout from "../pages/layouts/GuestLayout";
 import Home from "../pages/Home";
-import Products from "../pages/Products";
-import ProductDetail from "../pages/ProductDetail";
 import About from "../pages/About";
+
+import Products from "../pages/products/Products";
+import ProductDetail from "../pages/products/ProductDetail";
+import ProductCategory from "../pages/products/ProductCategory";
 
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
@@ -37,7 +39,15 @@ const Router = () => {
                         <ProductDetail />
                     </GuestLayout>
                 }
-                path="/product/:id/:name"
+                path="/product/:category/:id/:name"
+            ></Route>
+            <Route
+                element={
+                    <GuestLayout>
+                        <ProductCategory />
+                    </GuestLayout>
+                }
+                path="/product/:category"
             ></Route>
             <Route
                 element={

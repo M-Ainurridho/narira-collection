@@ -7,19 +7,10 @@ const Card = ({ index, item, children }) => {
     const [wishlist, setWishlist] = useState(false);
     const navigate = useNavigate();
 
-    // const fadeInAnimate = () => {
-    //     const loves = document.querySelectorAll(".wishlist-icon");
-
-    //     setWishlist(!wishlist);
-    //     loves[index].classList.add("fade-in");
-    // };
-
-    // const removeAnimate = () => {
-    //     const loves = document.querySelectorAll(".wishlist-icon");
-
-    //     setWishlist(!wishlist);
-    //     loves[index].classList.remove("fade-in");
-    // };
+    const imageUrl = new URL(
+        `/src/assets/images/products/${item.images[0]}`,
+        import.meta.url
+    ).href;
 
     return (
         <div
@@ -33,9 +24,7 @@ const Card = ({ index, item, children }) => {
         >
             <div className="card-img">
                 <img
-                    src={`/src/assets/images/products/${
-                        item?.images && item.images[0]
-                    }`}
+                    src={imageUrl}
                     className="w-full h-56 object-cover object-center rounded-t-md"
                     alt={item.images[0]}
                 />

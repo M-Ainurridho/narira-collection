@@ -1,8 +1,10 @@
 import { Fragment, useEffect } from "react";
-import { useDispatch } from "react-redux";
 
-import { products, rupiah } from "../../utils";
+import { useDispatch } from "react-redux";
 import { setCurrentMenu } from "../../redux/reducers";
+
+import { rupiah } from "../../utils";
+import { products } from "../../utils/data";
 
 import Card from "../../components/Card";
 import BreadCrumbs from "../../components/Breadcrumbs";

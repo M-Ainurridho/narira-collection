@@ -1,9 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useDispatch } from "react-redux";
 
-import { products, rupiah } from "../../utils";
+import { useDispatch } from "react-redux";
 import { addCart, setCurrentMenu } from "../../redux/reducers";
+
+import { rupiah } from "../../utils";
+import { products } from "../../utils/data";
 
 import BreadCrumbs from "../../components/Breadcrumbs";
 

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Card = ({ index, item, children }) => {
     const { currentMenu } = useSelector((state) => state.generalMenu);
-    const [wishlist, setWishlist] = useState(false);
+    // const [wishlist, setWishlist] = useState(false);
     const navigate = useNavigate();
 
     const imageUrl = new URL(

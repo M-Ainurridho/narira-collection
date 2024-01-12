@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { menus, products } from "../utils";
+import { products } from "../utils/data";
 import { setCurrentMenu } from "../redux/reducers";
 import Sidebar from "./sidebars/Sidebar";
 import Cart from "./sidebars/Cart";
+import Boxicons from "./icons/Boxicons";
+import BtnLink from "./buttons/BtnLink";
 
 const Navbar = () => {
     const { currentMenu } = useSelector((state) => state.generalMenu);
@@ -72,11 +74,70 @@ const Navbar = () => {
     return (
         <>
             <nav
-                className={`${
-                    currentMenu !== "Beranda" ? "bg-white border border-b" : ""
-                } fixed left-0 right-0 top-0 h-20 flex justify-between items-center px-4 md:px-8 lg:px-16 z-10`}
+                className={`fixed left-0 right-0 top-0 h-20 flex justify-between items-center px-4 md:px-8 lg:px-16 z-10 gap-x-4`}
             >
-                <div className="navbar-left">
+                <div className="navbar-start basis-1/5 hidden lg:block">
+                    <h1 className="font-permanent-marker hidden lg:block text-5xl">
+                        <BtnLink
+                            path="/"
+                            text="NARIRA"
+                            size="5xl"
+                            bgcolor="bg-transparent"
+                        />
+                    </h1>
+                </div>
+                <div className="navbar-center basis-4/5 lg:basis-3/5">
+                    <div className="search-box relative">
+                        <Boxicons
+                            icon="bx-search"
+                            color="text-neutral-900/75"
+                            style="absolute left-4 top-3"
+                            size="xl"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Cari di Narira Collection"
+                            className="w-full bg-transparent border border-neutral-900/50 rounded-full ps-10 p-2 placeholder:text-neutral-900/75 focus:outline-0 focus:border-lilac focus:shadow focus:shadow-purple-300"
+                        />
+                    </div>
+                </div>
+                <div className="navbar-end basis-1/5 flex gap-x-3">
+                    <div className="wishlist-icon flex items-center pe-4 border-e border-neutral-900/50">
+                        <Boxicons
+                            icon="bx-cart-alt"
+                            size="2xl"
+                            translate="-translate-y-1"
+                            pointer={true}
+                        />
+                    </div>
+
+                    <div className="btn-auth flex gap-x-3 ms-2">
+                        <div className="sign-in">
+                            <BtnLink
+                                path="/login"
+                                text="Masuk"
+                                color="text-white"
+                                bgcolor="bg-lilac"
+                                radius="lg"
+                                contentPadding="px-4 py-2"
+                                hover="hover:shadow-lg hover:shadow-purple-300 duration-100"
+                            />
+                        </div>
+                        <div className="sign-up">
+                            <BtnLink
+                                path="/register"
+                                text="Daftar"
+                                color="text-lilac"
+                                bgcolor="bg-transparent"
+                                border="border border-lilac"
+                                radius="lg"
+                                contentPadding="px-4 py-2"
+                                hover="hover:shadow-lg hover:shadow-purple-300 duration-100"
+                            ></BtnLink>
+                        </div>
+                    </div>
+                </div>
+                {/* <div className="navbar-left">
                     <div className="icon-menu lg:hidden flex items-center cursor-pointer">
                         <box-icon
                             name="menu"
@@ -149,72 +210,72 @@ const Navbar = () => {
                     >
                         Login
                     </button>
-                </div>
+                </div> */}
             </nav>
 
             {cart && <Cart onClick={() => setCart(!cart)} />}
 
-            <SidebarMenu
+            {/* <SidebarMenu
                 dropmenu={dropmenu}
                 currentMenu={currentMenu}
                 onClick={() => setDropmenu(!dropmenu)}
-            />
+            /> */}
         </>
     );
 };
 
-const SidebarMenu = ({ dropmenu, currentMenu, onClick }) => {
-    return (
-        <>
-            {dropmenu && (
-                <Sidebar position="left">
-                    <div className="flex justify-between items-center p-4">
-                        <Link to="/" className="font-permanent-marker text-3xl">
-                            NARIRA
-                        </Link>
-                        <div className="icon-menu cursor-pointer">
-                            <box-icon
-                                name="x"
-                                size="md"
-                                onClick={onClick}
-                            ></box-icon>
-                        </div>
-                    </div>
-                    <ul>
-                        <li>
-                            <Navigation
-                                styling="px-4 py-2 block hover:bg-violet-200"
-                                currentMenu={currentMenu}
-                            />
-                        </li>
-                    </ul>
-                </Sidebar>
-            )}
-        </>
-    );
-};
+// const SidebarMenu = ({ dropmenu, currentMenu, onClick }) => {
+//     return (
+//         <>
+//             {dropmenu && (
+//                 <Sidebar position="left">
+//                     <div className="flex justify-between items-center p-4">
+//                         <Link to="/" className="font-permanent-marker text-3xl">
+//                             NARIRA
+//                         </Link>
+//                         <div className="icon-menu cursor-pointer">
+//                             <box-icon
+//                                 name="x"
+//                                 size="md"
+//                                 onClick={onClick}
+//                             ></box-icon>
+//                         </div>
+//                     </div>
+//                     <ul>
+//                         <li>
+//                             <Navigation
+//                                 styling="px-4 py-2 block hover:bg-violet-200"
+//                                 currentMenu={currentMenu}
+//                             />
+//                         </li>
+//                     </ul>
+//                 </Sidebar>
+//             )}
+//         </>
+//     );
+// };
 
-const Navigation = ({ styling, currentMenu }) => {
-    const dispatch = useDispatch();
+// const Navigation = ({ styling, currentMenu }) => {
+//     const dispatch = useDispatch();
 
-    return (
-        <>
-            {menus.map((menu, i) => {
-                return (
-                    <Link
-                        key={i}
-                        to={menu.path}
-                        className={`${styling} ${
-                            currentMenu === menu.name && "font-bold"
-                        }`}
-                        onClick={() => dispatch(setCurrentMenu(menu.name))}
-                    >
-                        {menu.name}
-                    </Link>
-                );
-            })}
-        </>
-    );
-};
+//     return (
+//         <>
+//             {menus.map((menu, i) => {
+//                 return (
+//                     <Link
+//                         key={i}
+//                         to={menu.path}
+//                         className={`${styling} ${
+//                             currentMenu === menu.name && "font-bold"
+//                         }`}
+//                         onClick={() => dispatch(setCurrentMenu(menu.name))}
+//                     >
+//                         {menu.name}
+//                     </Link>
+//                 );
+//             })}
+//         </>
+//     );
+// };
 
 export default Navbar;

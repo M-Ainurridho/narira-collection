@@ -1,7 +1,10 @@
 import { useParams } from "react-router";
-import BreadCrumbs from "../../components/Breadcrumbs";
 import { Fragment, useEffect, useState } from "react";
-import { products, rupiah } from "../../utils";
+
+import { rupiah } from "../../utils";
+import { products } from "../../utils/data";
+
+import BreadCrumbs from "../../components/Breadcrumbs";
 import Card from "../../components/Card";
 
 const ProductCategory = () => {

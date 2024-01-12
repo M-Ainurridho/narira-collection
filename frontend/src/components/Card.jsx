@@ -28,6 +28,14 @@ const Card = ({ index, item, children }) => {
                     className="w-full h-56 object-cover object-center rounded-t-md"
                     alt={item.images[0]}
                 />
+
+                {item.discount ? (
+                    <span className="discount-label bg-red-500 absolute top-0 text-xs text-white px-2 py-1 rounded-br">
+                        {item.discount}%
+                    </span>
+                ) : (
+                    ""
+                )}
             </div>
             <div className="card-body">{children}</div>
         </div>

@@ -15,6 +15,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 10,
         price: 250000,
         stock: 10,
         availableItems: [
@@ -57,6 +58,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 0,
         price: 50000,
         stock: 10,
         availableItems: [
@@ -85,6 +87,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "pants",
+        discount: 8,
         price: 125000,
         stock: 10,
         availableItems: [
@@ -113,6 +116,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "pants",
+        discount: 0,
         price: 99000,
         stock: 10,
         availableItems: [
@@ -137,6 +141,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "pants",
+        discount: 5,
         price: 25000,
         stock: 10,
         availableItems: [
@@ -175,6 +180,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 0,
         price: 10000,
         stock: 10,
         availableItems: [
@@ -213,6 +219,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 0,
         price: 45000,
         stock: 10,
         availableItems: [
@@ -251,6 +258,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 0,
         price: 5000,
         stock: 10,
         availableItems: [
@@ -290,6 +298,7 @@ export const bestseller = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 20,
         price: 250000,
     },
     {
@@ -299,6 +308,7 @@ export const bestseller = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 0,
         price: 50000,
     },
     {
@@ -308,6 +318,7 @@ export const bestseller = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 5,
         price: 125000,
     },
     {
@@ -317,6 +328,7 @@ export const bestseller = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 12,
         price: 99000,
     },
     {
@@ -326,6 +338,7 @@ export const bestseller = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
         category: "shirt",
+        discount: 0,
         price: 25000,
     },
 ];
@@ -350,9 +363,5 @@ export const categories = [
     {
         img: "headphone.png",
         name: "Earphone & Headphone",
-    },
-    {
-        img: "man-shirt.png",
-        name: "Sepatu",
     },
 ];

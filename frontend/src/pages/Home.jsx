@@ -20,6 +20,31 @@ const Home = () => {
         dispatch(setCurrentMenu("Beranda"));
     }, []);
 
+    const isDiscount = (item) => {
+        return (
+            <>
+                {item.discount ? (
+                    <span className="font-semibold">
+                        {rupiah(
+                            item.price - (item.discount / 100) * item.price,
+                            true
+                        )}
+                    </span>
+                ) : (
+                    ""
+                )}
+                <span>
+                    {item.discount ? (
+                        <del className="text-neutral-900/50 ms-1">
+                            {rupiah(item.price, true)}
+                        </del>
+                    ) : (
+                        <span className="font-semibold">{rupiah(item.price, true)}</span>
+                    )}
+                </span>
+            </>
+        );
+    };
     return (
         <>
             <div className="hero"></div>
@@ -63,11 +88,13 @@ const Home = () => {
                             return (
                                 <Fragment key={i}>
                                     <Card index={i} item={item}>
-                                        <div className="flex items-center justify-between p-2 text-sm md:text-base">
-                                            <h5 className="truncate w-4/5">
+                                        <div className="p-2 text-base">
+                                            <h5 className="truncate">
                                                 {item.name}
                                             </h5>
-                                            <p>{rupiah(item.price, true)}</p>
+                                            <p className="-ms-1">
+                                                {isDiscount(item)}
+                                            </p>
                                         </div>
                                     </Card>
                                 </Fragment>

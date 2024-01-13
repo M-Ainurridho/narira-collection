@@ -29,12 +29,16 @@ export const translate = (letter) => {
     return letter;
 };
 
-export const firstWordUppercase = (word) => {
-    let firstWord = word.slice(0, 1).toUpperCase();
-    const exceptFirst = word.slice(1);
+export const firstUppercase = (word) => {
+    let newWord;
 
-    const newWord = firstWord + exceptFirst;
-    return newWord;
+    newWord = word.split(" ").map((w, i) => {
+        const firstWord = w.slice(0, 1).toUpperCase();
+
+        return firstWord + w.slice(1);
+    });
+
+    return newWord.join(" ");
 };
 
 export const exchangeToken = async () => {
@@ -66,10 +70,14 @@ export const mergeSize = (item) => {
     return Array.from(newSizes);
 };
 
-export const dashWord = (word) => {
-    word = word.toLowerCase().split(" ");
-
-    return word.join("-");
+export const kebabCase = (word, cond) => {
+    if (cond) {
+        word = word.toLowerCase().split(" ");
+        return word.join("-");
+    } else {
+        word = word.toLowerCase().split("-");
+        return word.join(" ");
+    }
 };
 
 export const setTitle = (title) => {

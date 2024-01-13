@@ -54,6 +54,20 @@ body {
     animation: slideR 0.5s ease;
 }
 
+.option-active::before {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: 5px;
+    left: 0;
+    bottom: 5px;
+
+    width: 5px;
+
+    background-color: #b975c1;
+}
+
 /* @import url('./styles/animations.css'); */
 @keyframes slideL {
     0% {

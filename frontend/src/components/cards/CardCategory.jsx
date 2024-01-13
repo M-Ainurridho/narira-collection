@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-import { dashWord } from "../../utils";
+import { kebabCase } from "../../utils";
 
 const CardCategory = ({ name, img }) => {
     const navigate = useNavigate();
 
     return (
         <div
-            className="category relative text-center border pt-4 pb-4 rounded cursor-pointer hover:shadow duration-100"
-            onClick={() => navigate(`/p/${dashWord(name)}`)}
+            className="category relative text-center border pt-4 pb-4 px-1 rounded cursor-pointer hover:shadow duration-100"
+            onClick={() => navigate(`/p/${kebabCase(name, true)}`)}
         >
             <div className="category-image">
                 <div

@@ -346,22 +346,27 @@ export const bestseller = [
 export const categories = [
     {
         img: "man-shirt.png",
-        name: "Baju Pria",
+        name: "Pakaian Pria",
+        submenu: ["Baju Batik", "Kemeja Pria", "Jas Pria"],
     },
     {
         img: "man-pants.png",
         name: "Celana Pria",
+        submenu: ["Celana Kulot", "Joger", "Celana Training"],
     },
     {
         img: "shoes.png",
-        name: "Sepatu",
+        name: "Sepatu & Sneakers",
+        submenu: ["Sepatu Wanita", "Sepatu Pria"],
     },
     {
         img: "gamis.png",
         name: "Fashion Muslim Wanita",
+        submenu: ["Gamis Wanita", "Mukena", "Sajadah"],
     },
     {
         img: "headphone.png",
         name: "Earphone & Headphone",
+        submenu: ["Galactus", "Sony", "Baseus", "Robot"],
     },
 ];

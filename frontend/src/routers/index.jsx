@@ -47,7 +47,7 @@ const Router = () => {
                         <ProductCategory />
                     </GuestLayout>
                 }
-                path="/product/:category"
+                path="/p/:category"
             ></Route>
             <Route
                 element={

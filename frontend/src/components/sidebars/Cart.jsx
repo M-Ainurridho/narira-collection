@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { firstWordUppercase, rupiah } from "../../utils";
+// import { firstWordUppercase, rupiah } from "../../utils";
 import Sidebar from "./Sidebar";
 import { replaceCart } from "../../redux/reducers";
 
@@ -44,7 +44,7 @@ const Cart = ({ onClick }) => {
                             <p className="text-xs text-neutral-400">
                                 Color
                                 <span className="text-neutral-900 font-semibold ms-1">
-                                    {firstWordUppercase(cart.color)}
+                                    {/* {firstWordUppercase(cart.color)} */}
                                 </span>
                             </p>
                         </div>

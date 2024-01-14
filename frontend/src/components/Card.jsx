@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { rupiah } from "../utils";
+import { kebabCase, rupiah } from "../utils";
 
 import Boxicons from "./icons/Boxicons";
 
@@ -18,10 +18,9 @@ const Card = ({ item }) => {
         return (
             <>
                 {item.discount ? (
-                    <span className="font-semibold">
+                    <span>
                         {rupiah(
-                            item.price - (item.discount / 100) * item.price,
-                            true
+                            item.price - (item.discount / 100) * item.price
                         )}
                     </span>
                 ) : (
@@ -29,12 +28,12 @@ const Card = ({ item }) => {
                 )}
                 <span>
                     {item.discount ? (
-                        <del className="text-neutral-900/50 ms-1">
-                            {rupiah(item.price, true)}
+                        <del className="text-neutral-900/50 ms-1 font-light">
+                            {rupiah(item.price)}
                         </del>
                     ) : (
                         <span className="font-semibold">
-                            {rupiah(item.price, true)}
+                            {rupiah(item.price)}
                         </span>
                     )}
                 </span>
@@ -76,7 +75,9 @@ const Card = ({ item }) => {
                 title={item.name}
                 onClick={() =>
                     navigate(
-                        `/product/${item.category}/${item.id}/${item.name}`
+                        `/p/${kebabCase(item.category, true)}/d/${
+                            item.id
+                        }/${kebabCase(item.name, true)}`
                     )
                 }
             >
@@ -87,10 +88,10 @@ const Card = ({ item }) => {
                         alt={item.images[0]}
                     />
                 </div>
-                <div className="card-body">
+                <div className="card-body font-semibold">
                     <div className="p-2 text-base">
                         <h5 className="truncate">{item.name}</h5>
-                        <p className="-ms-1">{isDiscount(item)}</p>
+                        <p className="truncate">{isDiscount(item)}</p>
                     </div>
                 </div>
             </div>

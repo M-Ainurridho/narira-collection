@@ -1,19 +1,42 @@
 import { postData } from "../api";
 
 export const rupiah = (price, K = false) => {
+    const satuan = satuanRupiah(price);
+
     let currency = new Intl.NumberFormat("id-ID", {
         style: "currency",
         currency: "IDR",
     }).format(price);
 
     if (K) {
-        currency = currency.split(".")[0].split("Rp")[1];
-        currency = `${currency}k`;
+        currency = currency.split(".");
+        const firstIndex = currency[0].split("Rp")[1];
+
+        if (satuan == "ribuan") {
+            currency = `${firstIndex}K`;
+        } else {
+            if (currency[1][0] != "0") {
+                const byComma = currency[1][0];
+
+                currency = `${firstIndex}.${byComma} Juta`;
+            } else {
+                currency = `${firstIndex} Juta`;
+            }
+        }
     } else {
         currency = currency.split(",")[0];
     }
-
     return currency;
+};
+
+const satuanRupiah = (price) => {
+    price = price.toString();
+
+    if (price.length > 0 && price.length < 7) {
+        return "ribuan";
+    } else if (price.length >= 7) {
+        return "jutaan";
+    }
 };
 
 export const translate = (letter) => {

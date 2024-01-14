@@ -14,7 +14,7 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 10,
         price: 250000,
         stock: 10,
@@ -57,7 +57,7 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 0,
         price: 50000,
         stock: 10,
@@ -86,7 +86,7 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "pants",
+        category: "Celana Pria",
         discount: 8,
         price: 125000,
         stock: 10,
@@ -115,7 +115,7 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "pants",
+        category: "Celana Pria",
         discount: 0,
         price: 99000,
         stock: 10,
@@ -140,7 +140,7 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "pants",
+        category: "Celana Pria",
         discount: 5,
         price: 25000,
         stock: 10,
@@ -179,7 +179,7 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 0,
         price: 10000,
         stock: 10,
@@ -218,7 +218,7 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 0,
         price: 45000,
         stock: 10,
@@ -251,19 +251,175 @@ export const products = [
     },
     {
         id: 8,
-        name: "Mukena Congsu Panjang",
-        images: ["product-4.jpg"],
+        name: "Nike Jordan",
+        images: ["shoes-1.jpg"],
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
-        discount: 0,
-        price: 5000,
+        category: "Sepatu & Sneakers",
+        discount: 25,
+        price: 100000,
         stock: 10,
         availableItems: [
             {
-                image: "product-1.jpg",
+                image: "shoes-1.jpg",
+                availableSizes: [
+                    {
+                        size: "S",
+                        stock: 2,
+                    },
+                    {
+                        size: "L",
+                        stock: 4,
+                    },
+                ],
+                color: "gray",
+            },
+            {
+                image: "product-2.jpg",
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "black",
+            },
+        ],
+    },
+    {
+        id: 9,
+        name: "Reebok Air Plane",
+        images: ["shoes-2.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
+        description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+        category: "Sepatu & Sneakers",
+        discount: 0,
+        price: 960000,
+        stock: 10,
+        availableItems: [
+            {
+                image: "shoes-1.jpg",
+                availableSizes: [
+                    {
+                        size: "S",
+                        stock: 2,
+                    },
+                    {
+                        size: "L",
+                        stock: 4,
+                    },
+                ],
+                color: "gray",
+            },
+            {
+                image: "product-2.jpg",
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "black",
+            },
+        ],
+    },
+    {
+        id: 10,
+        name: "Adidas Lion",
+        images: ["shoes-3.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
+        description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+        category: "Sepatu & Sneakers",
+        discount: 0,
+        price: 1200000,
+        stock: 10,
+        availableItems: [
+            {
+                image: "shoes-1.jpg",
+                availableSizes: [
+                    {
+                        size: "S",
+                        stock: 2,
+                    },
+                    {
+                        size: "L",
+                        stock: 4,
+                    },
+                ],
+                color: "gray",
+            },
+            {
+                image: "product-2.jpg",
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "black",
+            },
+        ],
+    },
+    {
+        id: 11,
+        name: "Nike Stephen Curry Limited Edition",
+        images: ["shoes-4.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
+        description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+        category: "Sepatu & Sneakers",
+        discount: 4,
+        price: 10000000,
+        stock: 10,
+        availableItems: [
+            {
+                image: "shoes-1.jpg",
+                availableSizes: [
+                    {
+                        size: "S",
+                        stock: 2,
+                    },
+                    {
+                        size: "L",
+                        stock: 4,
+                    },
+                ],
+                color: "gray",
+            },
+            {
+                image: "product-2.jpg",
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "black",
+            },
+        ],
+    },
+    {
+        id: 12,
+        name: "Converse Golden Star",
+        images: ["shoes-5.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
+        description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+        category: "Sepatu & Sneakers",
+        discount: 20,
+        price: 100000000,
+        stock: 10,
+        availableItems: [
+            {
+                image: "shoes-1.jpg",
                 availableSizes: [
                     {
                         size: "S",
@@ -297,7 +453,7 @@ export const bestseller = [
         images: ["product-1.jpg"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 20,
         price: 250000,
     },
@@ -307,7 +463,7 @@ export const bestseller = [
         images: ["product-2.jpg"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 0,
         price: 50000,
     },
@@ -317,7 +473,7 @@ export const bestseller = [
         images: ["product-3.jpg"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 5,
         price: 125000,
     },
@@ -327,7 +483,7 @@ export const bestseller = [
         images: ["product-4.jpg"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 12,
         price: 99000,
     },
@@ -337,7 +493,7 @@ export const bestseller = [
         images: ["product-1.jpg"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
-        category: "shirt",
+        category: "Pakaian Pria",
         discount: 0,
         price: 25000,
     },

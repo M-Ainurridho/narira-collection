@@ -39,7 +39,7 @@ const Router = () => {
                         <ProductDetail />
                     </GuestLayout>
                 }
-                path="/product/:category/:id/:name"
+                path="/p/:category/d/:id/:productName"
             ></Route>
             <Route
                 element={

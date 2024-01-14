@@ -8,6 +8,8 @@ import { rupiah } from "../../utils";
 import { products } from "../../utils/data";
 
 import BreadCrumbs from "../../components/Breadcrumbs";
+import Section from "../../components/Section";
+import Container from "../../components/Container";
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -123,137 +125,140 @@ const ProductDetail = () => {
 
     return (
         <>
-            <BreadCrumbs></BreadCrumbs>
-            <section
-                id="product-detail"
-                className="mb-10 px-4 md:px-8 lg:px-16"
-            >
-                <div className="grid lg:grid-cols-3 gap-6">
-                    <div className="self-start">
-                        <img
-                            src={`/src/assets/images/products/${
-                                item?.availableItems != undefined &&
-                                item.availableItems[imgIndex].image
-                            }`}
-                            alt="product1"
-                            className="wide-img rounded-lg w-full object-cover object-center"
-                        />
-                        <div className="choice-images my-3 grid grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-4 justify-between">
-                            {allImageItems}
-                        </div>
-                    </div>
-                    <div className="basis-3/5">
-                        <div className="detail-header border-b pb-5">
-                            <h1 className="font-bold text-2xl md:text-4xl">
-                                {item?.name}
-                            </h1>
-                            <p className="font-medium md:text-xl my-2">
-                                {rupiah(item?.price)}
-                            </p>
-                            <p className="ratings">
-                                <span className="inline-block translate-y-0.5">
-                                    <box-icon
-                                        type="solid"
-                                        name="star"
-                                        color="gold"
-                                        size="xs"
-                                    ></box-icon>
-                                </span>
-                                <span className="text-xs ms-2">
-                                    4.8 (94 Ulasan)
-                                </span>
-                            </p>
-                        </div>
+            <BreadCrumbs />
 
-                        <div className="self-startdetail-body py-3">
-                            <div className="choose-size mb-4 text-sm">
-                                <h6 className="text-neutral-400 mb-2 tracking-wide">
-                                    PILIH UKURAN
-                                </h6>
-                                <div className="inline-block bg-neutral-100 border rounded-md py-1.5 px-0.5">
-                                    {availableSizes}
-                                </div>
-
-                                {currentSize?.stock ? (
-                                    <span className="ms-3">
-                                        Tersedia {currentSize.stock} lagi
-                                    </span>
-                                ) : (
-                                    <span className="ms-3 text-red-500">
-                                        HABIS!!!
-                                    </span>
-                                )}
+            <Section sectionId="product-detail">
+                <Container style="mt-8">
+                    <div className="grid lg:grid-cols-3 gap-6">
+                        <div className="self-start">
+                            <img
+                                src={`/src/assets/images/products/${
+                                    item?.availableItems != undefined &&
+                                    item.availableItems[imgIndex].image
+                                }`}
+                                alt="product1"
+                                className="wide-img rounded-lg w-full object-cover object-center"
+                            />
+                            <div className="choice-images my-3 grid grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-4 justify-between">
+                                {allImageItems}
                             </div>
-                            <div className="choose-color mb-4 text-sm">
-                                <h6 className="text-neutral-400 mb-2 tracking-wide">
-                                    WARNA
-                                </h6>
-                                <div className="inline-block bg-neutral-100 border rounded-md pt-1 pb-1 px-0.5">
-                                    {colorPicker}
-                                </div>
-                            </div>
-                            <div className="description text-sm">
-                                <h6 className="text-neutral-400 mb-2 tracking-wide">
-                                    DESKRIPSI
-                                </h6>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Eius, quae. Quo, quae odio
-                                    sequi debitis unde earum nemo officia
-                                    voluptatibus dolorem provident repellat
-                                    consequuntur sapiente quos quis magnam sint
-                                    ad reprehenderit? Asperiores rem voluptas
+                        </div>
+                        {/* <div className="basis-3/5">
+                            <div className="detail-header border-b pb-5">
+                                <h1 className="font-bold text-2xl md:text-4xl">
+                                    {item?.name}
+                                </h1>
+                                <p className="font-medium md:text-xl my-2">
+                                    {rupiah(item?.price)}
+                                </p>
+                                <p className="ratings">
+                                    <span className="inline-block translate-y-0.5">
+                                        <box-icon
+                                            type="solid"
+                                            name="star"
+                                            color="gold"
+                                            size="xs"
+                                        ></box-icon>
+                                    </span>
+                                    <span className="text-xs ms-2">
+                                        4.8 (94 Ulasan)
+                                    </span>
                                 </p>
                             </div>
-                        </div>
-                    </div>
 
-                    <div className="self-start rounded-md border ">
-                        <h3 className="font-semibold p-3 text-lg">
-                            Atur Pesanan
-                        </h3>
-                        <hr />
-                        <div className="product-quantity p-3  flex justify-between items-center text-xs md:text-sm">
-                            <h6 className="text-neutral-400">
-                                KUANTITAS PRODUK
-                            </h6>
-                            <div className="bg-neutral-100 flex items-center p-1 rounded-md border">
-                                <i
-                                    className="bx bx-minus bg-white text-neutral-400 hover:text-neutral-800 px-1 rounded-md cursor-pointer text-base md:text-xl shadow"
-                                    onClick={() => setQuantity(--quantity)}
-                                ></i>
-                                <div className="quantity px-3">{quantity}</div>
-                                <i
-                                    className="bx bx-plus bg-white text-neutral-400 hover:text-neutral-800 px-1 rounded-md cursor-pointer text-base md:text-xl shadow"
-                                    onClick={() => setQuantity(++quantity)}
-                                ></i>
+                            <div className="self-startdetail-body py-3">
+                                <div className="choose-size mb-4 text-sm">
+                                    <h6 className="text-neutral-400 mb-2 tracking-wide">
+                                        PILIH UKURAN
+                                    </h6>
+                                    <div className="inline-block bg-neutral-100 border rounded-md py-1.5 px-0.5">
+                                        {availableSizes}
+                                    </div>
+
+                                    {currentSize?.stock ? (
+                                        <span className="ms-3">
+                                            Tersedia {currentSize.stock} lagi
+                                        </span>
+                                    ) : (
+                                        <span className="ms-3 text-red-500">
+                                            HABIS!!!
+                                        </span>
+                                    )}
+                                </div>
+                                <div className="choose-color mb-4 text-sm">
+                                    <h6 className="text-neutral-400 mb-2 tracking-wide">
+                                        WARNA
+                                    </h6>
+                                    <div className="inline-block bg-neutral-100 border rounded-md pt-1 pb-1 px-0.5">
+                                        {colorPicker}
+                                    </div>
+                                </div>
+                                <div className="description text-sm">
+                                    <h6 className="text-neutral-400 mb-2 tracking-wide">
+                                        DESKRIPSI
+                                    </h6>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Eius, quae. Quo, quae
+                                        odio sequi debitis unde earum nemo
+                                        officia voluptatibus dolorem provident
+                                        repellat consequuntur sapiente quos quis
+                                        magnam sint ad reprehenderit? Asperiores
+                                        rem voluptas
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <hr />
-                        <div className="estimasi-total p-3 flex justify-between items-center text-xs md:text-sm">
-                            <h6 className="text-neutral-400">
-                                ESTIMASI SUBTOTAL
-                            </h6>
-                            <div className="text-base font-medium">
-                                {rupiah(item.price * quantity)}
+
+                        <div className="self-start rounded-md border ">
+                            <h3 className="font-semibold p-3 text-lg">
+                                Atur Pesanan
+                            </h3>
+                            <hr />
+                            <div className="product-quantity p-3  flex justify-between items-center text-xs md:text-sm">
+                                <h6 className="text-neutral-400">
+                                    KUANTITAS PRODUK
+                                </h6>
+                                <div className="bg-neutral-100 flex items-center p-1 rounded-md border">
+                                    <i
+                                        className="bx bx-minus bg-white text-neutral-400 hover:text-neutral-800 px-1 rounded-md cursor-pointer text-base md:text-xl shadow"
+                                        onClick={() => setQuantity(--quantity)}
+                                    ></i>
+                                    <div className="quantity px-3">
+                                        {quantity}
+                                    </div>
+                                    <i
+                                        className="bx bx-plus bg-white text-neutral-400 hover:text-neutral-800 px-1 rounded-md cursor-pointer text-base md:text-xl shadow"
+                                        onClick={() => setQuantity(++quantity)}
+                                    ></i>
+                                </div>
                             </div>
-                        </div>
-                        <div className="p-3">
-                            <button
-                                className="bg-lilac hover:bg-lilac-hover duration-100 w-full text-sm text-white p-1.5 mb-2.5 rounded-full flex items-center justify-center"
-                                onClick={addNewCart}
-                            >
-                                <i className="bx bx-cart-alt me-2 text-lg"></i>
-                                Tambah Keranjang
-                            </button>
-                            <button className="bg-neutral-100 hover:bg-neutral-200 duration-100 w-full text-sm p-1.5 mb-2.5 rounded-full flex items-center justify-center">
-                                <i className="bx bx-heart me-2 text-lg"></i>
-                                Tambah ke Favorit
-                            </button>
-                        </div>
+                            <hr />
+                            <div className="estimasi-total p-3 flex justify-between items-center text-xs md:text-sm">
+                                <h6 className="text-neutral-400">
+                                    ESTIMASI SUBTOTAL
+                                </h6>
+                                <div className="text-base font-medium">
+                                    {rupiah(item.price * quantity)}
+                                </div>
+                            </div>
+                            <div className="p-3">
+                                <button
+                                    className="bg-lilac hover:bg-lilac-hover duration-100 w-full text-sm text-white p-1.5 mb-2.5 rounded-full flex items-center justify-center"
+                                    onClick={addNewCart}
+                                >
+                                    <i className="bx bx-cart-alt me-2 text-lg"></i>
+                                    Tambah Keranjang
+                                </button>
+                                <button className="bg-neutral-100 hover:bg-neutral-200 duration-100 w-full text-sm p-1.5 mb-2.5 rounded-full flex items-center justify-center">
+                                    <i className="bx bx-heart me-2 text-lg"></i>
+                                    Tambah ke Favorit
+                                </button>
+                            </div>
+                        </div> */}
                     </div>
-                </div>
-            </section>
+                </Container>
+            </Section>
         </>
     );
 };

@@ -1,10 +1,4 @@
-import {
-    useHref,
-    useLoaderData,
-    useLocation,
-    useNavigate,
-    useParams,
-} from "react-router";
+import { useHref, useLocation, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { firstUppercase, kebabCase } from "../utils";
 import Boxicons from "./icons/Boxicons";

@@ -1,10 +1,18 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import { useDispatch } from "react-redux";
-import { addCart, setCurrentMenu } from "../../redux/reducers";
+import { setCurrentMenu } from "../../redux/reducers";
 
-import { firstUppercase, imgUrl, orderBySizes, rupiah } from "../../utils";
+import {
+    firstUppercase,
+    imgUrl,
+    kebabCase,
+    orderBySizes,
+    rupiah,
+    setTitle,
+} from "../../utils";
+
 import { products } from "../../utils/data";
 
 import BreadCrumbs from "../../components/Breadcrumbs";
@@ -23,6 +31,13 @@ const ProductDetail = () => {
     const [currentColor, setCurrentColor] = useState("");
 
     const dispatch = useDispatch();
+    const { category, productName } = useParams();
+
+    setTitle(
+        `${firstUppercase(kebabCase(productName))} | ${firstUppercase(
+            kebabCase(category)
+        )}`
+    );
 
     useEffect(() => {
         if (!item?.name) {
@@ -39,42 +54,6 @@ const ProductDetail = () => {
             setQuantity(1);
         }
     }, [quantity]);
-
-    // const allImageItems =
-    //     item?.availableItems &&
-    //     item.availableItems.map((item, i) => {
-    //         return (
-    //             <img
-    //                 key={i}
-    //                 src={`/src/assets/images/products/${item.image}`}
-    //                 alt={item.image}
-    //                 className={`w-full h-24 sm:h-36 lg:h-24 rounded-md cursor-pointer object-cover ${
-    //                     imgIndex === i && "border border-2 border-neutral-700"
-    //                 }`}
-    //                 onClick={() => {
-    //                     setCurrentSize(item.availableSizes[0]);
-    //                     setCurrentColor(item.color);
-    //                     setImgIndex(i);
-    //                 }}
-    //             />
-    //         );
-    //     });
-
-    // const addNewCart = () => {
-    //     const newItem = {
-    //         id: item.id,
-    //         name: item.name,
-    //         image: item.availableItems[imgIndex].image,
-    //         category: item.category,
-    //         size: currentSize.size,
-    //         color: currentColor,
-    //         quantity: quantity,
-    //         price: item.price,
-    //         description: item.description,
-    //     };
-
-    //     dispatch(addCart(newItem));
-    // };
 
     // All Products Images
     const printAllImages = () => {

@@ -14,6 +14,7 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
+        brand: "Distro",
         discount: 10,
         price: 250000,
         stock: 10,
@@ -37,7 +38,7 @@ export const products = [
                 color: "white",
             },
             {
-                image: "product-2.jpg",
+                image: ["product-2.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -57,12 +58,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
+        brand: "Calvin Klein",
         discount: 0,
         price: 50000,
         stock: 10,
         availableItems: [
             {
-                image: "product-2.jpg",
+                image: ["product-2.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -79,19 +81,20 @@ export const products = [
     },
     {
         id: 3,
-        name: "Gamis Abaya",
+        name: "Celana Joger",
         images: ["product-5.jpg"],
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Celana Pria",
+        brand: "Shafira",
         discount: 8,
         price: 125000,
         stock: 10,
         availableItems: [
             {
-                image: "product-5.jpg",
+                image: ["product-5.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -114,13 +117,14 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
-        category: "Celana Pria",
+        Category: "Celana Pria",
+        brand: "Jeans Denim",
         discount: 0,
         price: 99000,
         stock: 10,
         availableItems: [
             {
-                image: "product-7.jpg",
+                image: ["product-7.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -140,12 +144,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Celana Pria",
+        brand: "Distro",
         discount: 5,
         price: 25000,
         stock: 10,
         availableItems: [
             {
-                image: "product-8.jpg",
+                image: ["product-8.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -159,7 +164,7 @@ export const products = [
                 color: "orange",
             },
             {
-                image: "product-6.jpg",
+                image: ["product-6.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -179,12 +184,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
+        brand: "Calvin Klein",
         discount: 0,
         price: 10000,
         stock: 10,
         availableItems: [
             {
-                image: "product-1.jpg",
+                image: ["product-1.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -198,7 +204,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "product-2.jpg",
+                image: ["product-2.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -217,13 +223,14 @@ export const products = [
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
-        category: "Pakaian Pria",
+        category: "Pakaian Wanita",
+        brand: "Cass Elana",
         discount: 0,
         price: 45000,
         stock: 10,
         availableItems: [
             {
-                image: "product-1.jpg",
+                image: ["product-1.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -237,7 +244,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "product-2.jpg",
+                image: ["product-2.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -257,12 +264,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
+        brand: "Nike",
         discount: 25,
         price: 100000,
         stock: 10,
         availableItems: [
             {
-                image: "shoes-1.jpg",
+                image: ["shoes-1.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -276,7 +284,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "product-2.jpg",
+                image: ["product-2.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -296,12 +304,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
+        brand: "Reebok",
         discount: 0,
         price: 960000,
         stock: 10,
         availableItems: [
             {
-                image: "shoes-1.jpg",
+                image: ["shoes-1.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -315,7 +324,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "product-2.jpg",
+                image: ["product-2.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -335,12 +344,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
+        brand: "Adidas",
         discount: 0,
         price: 1200000,
         stock: 10,
         availableItems: [
             {
-                image: "shoes-1.jpg",
+                image: ["shoes-1.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -354,7 +364,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "product-2.jpg",
+                image: ["product-2.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -374,12 +384,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
+        brand: "Nike",
         discount: 4,
         price: 10000000,
         stock: 10,
         availableItems: [
             {
-                image: "shoes-4.jpg",
+                image: ["shoes-4.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -393,7 +404,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "shoes-1.jpg",
+                image: ["shoes-1.jpg"],
                 availableSizes: [
                     {
                         size: "M",
@@ -413,12 +424,13 @@ export const products = [
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
+        brand: "Converse",
         discount: 20,
         price: 100000000,
         stock: 10,
         availableItems: [
             {
-                image: "shoes-5.jpg",
+                image: ["shoes-5.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -432,7 +444,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "shoes-3.jpg",
+                image: ["shoes-3.jpg"],
                 availableSizes: [
                     {
                         size: "M",

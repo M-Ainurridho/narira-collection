@@ -75,7 +75,7 @@ const Navbar = () => {
                                 hover="hover:shadow-lg hover:shadow-purple-300 duration-100"
                             />
                         </div>
-                        <div className="sign-up">
+                        <div className="sign-up hidden md:block">
                             <BtnLink
                                 path="/register"
                                 text="Daftar"

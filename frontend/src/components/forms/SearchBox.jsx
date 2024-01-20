@@ -41,7 +41,7 @@ const SearchBox = () => {
             <input
                 type="text"
                 placeholder="Cari di Narira Collection"
-                className="w-full bg-transparent border border-neutral-900/50 rounded-full ps-10 p-2 placeholder:text-neutral-900/75 focus:outline-0 focus:border-lilac focus:shadow focus:shadow-purple-300"
+                className="w-full bg-transparent border border-neutral-900/50 rounded-full ps-10 p-2 placeholder:text-neutral-900/50 focus:outline-0 focus:border-lilac focus:shadow focus:shadow-purple-300"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyUp={handleKeyUp}

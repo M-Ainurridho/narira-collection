@@ -21,12 +21,12 @@ const BreadCrumbs = () => {
     return (
         <section
             id="breadcrumbs"
-            className="bg-lilac mt-20 px-4 md:px-8 lg:px-16 pt-20 pb-6 flex items-center relative"
+            className="bg-lilac mt-20 px-4 md:px-8 lg:px-16 pt-20 pb-6 flex items-center relative "
         >
             <h2 className="text-white text-2xl">
                 {isDetail ? firstUppercase(kebabCase(productName)) : category}
             </h2>
-            <div className="bg-white absolute left-16 right-16 -bottom-9 p-4 border rounded-md shadow shadow-md shadow-neutral-200 text-sm flex">
+            <div className="breadcrumbs-track bg-white absolute left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 -bottom-9 p-4 border rounded-md shadow shadow-md shadow-neutral-200 text-sm flex overflow-x-auto">
                 <p className="flex items-center">
                     <Link
                         to="/"
@@ -63,7 +63,7 @@ const BreadCrumbs = () => {
                     </>
                 ) : (
                     <>
-                        <p className="flex items-center">
+                        <p className="flex items-center text-nowrap">
                             <Link
                                 to={`/p/${kebabCase(category, true)}`}
                                 className="me-1 text-lilac hover:text-purple-600 duration-100"
@@ -75,7 +75,7 @@ const BreadCrumbs = () => {
                                 translate="-translate-y-1"
                             />
                         </p>
-                        <p className=" flex items-center">
+                        <p className=" flex items-center text-nowrap">
                             {firstUppercase(kebabCase(productName))}
                         </p>
                     </>

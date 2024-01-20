@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { kebabCase } from "../../utils";
+import { imgUrl, kebabCase } from "../../utils";
 
 const CardCategory = ({ name, img }) => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const CardCategory = ({ name, img }) => {
                     style={{ zIndex: "-9999" }}
                 ></div>
                 <img
-                    src={`/src/assets/images/categories/${img}`}
+                    src={imgUrl("categories", img)}
                     className="mx-auto w-22 h-22 lg:w-24 lg:h-24 object-cover object-center"
                 />
             </div>

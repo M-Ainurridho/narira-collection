@@ -1,10 +1,18 @@
-import { useHref, useNavigate, useParams } from "react-router";
+import {
+    useHref,
+    useLoaderData,
+    useLocation,
+    useNavigate,
+    useParams,
+} from "react-router";
 import { Link } from "react-router-dom";
 import { firstUppercase, kebabCase } from "../utils";
 import Boxicons from "./icons/Boxicons";
 
-const BreadCrumbs = ({ children }) => {
+const BreadCrumbs = () => {
     let { category, productName } = useParams();
+    let { search } = useLocation();
+
     const path = useHref();
     const isDetail = path.includes("/d/");
 
@@ -18,7 +26,7 @@ const BreadCrumbs = ({ children }) => {
             <h2 className="text-white text-2xl">
                 {isDetail ? firstUppercase(kebabCase(productName)) : category}
             </h2>
-            <div className="bg-white absolute left-16 right-16 -bottom-8 p-4 border rounded-md shadow shadow-md shadow-neutral-200 text-sm flex">
+            <div className="bg-white absolute left-16 right-16 -bottom-9 p-4 border rounded-md shadow shadow-md shadow-neutral-200 text-sm flex">
                 <p className="flex items-center">
                     <Link
                         to="/"
@@ -26,10 +34,7 @@ const BreadCrumbs = ({ children }) => {
                     >
                         Beranda
                     </Link>
-                    <Boxicons
-                        icon="bx-chevron-right"
-                        translate="-translate-y-1"
-                    />
+                    <Boxicons icon="chevron-right" translate="-translate-y-1" />
                 </p>
                 <p className="flex items-center">
                     <Link
@@ -38,14 +43,24 @@ const BreadCrumbs = ({ children }) => {
                     >
                         Kategori
                     </Link>
-                    <Boxicons
-                        icon="bx-chevron-right"
-                        translate="-translate-y-1"
-                    />
+                    <Boxicons icon="chevron-right" translate="-translate-y-1" />
                 </p>
 
                 {!isDetail ? (
-                    <p className=" flex items-center">{category}</p>
+                    <>
+                        {search ? (
+                            <p className="flex items-center">
+                                <Link
+                                    to={`/p/${kebabCase(category, true)}`}
+                                    className="me-1 text-lilac hover:text-purple-600 duration-100"
+                                >
+                                    {category}
+                                </Link>
+                            </p>
+                        ) : (
+                            <p className=" flex items-center">{category}</p>
+                        )}
+                    </>
                 ) : (
                     <>
                         <p className="flex items-center">
@@ -56,7 +71,7 @@ const BreadCrumbs = ({ children }) => {
                                 {category}
                             </Link>
                             <Boxicons
-                                icon="bx-chevron-right"
+                                icon="chevron-right"
                                 translate="-translate-y-1"
                             />
                         </p>

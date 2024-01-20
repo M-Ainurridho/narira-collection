@@ -22,6 +22,10 @@ export default {
             inset: {
                 10.5: "42px",
             },
+
+            fontSize: {
+                "2xs": "2px",
+            },
         },
     },
     plugins: [],

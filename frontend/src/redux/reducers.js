@@ -61,7 +61,18 @@ export const cartReducer = createSlice({
     },
 });
 
+export const searchReducer = createSlice({
+    name: "search product",
+    initialState: "",
+    reducers: {
+        searched: (state, action) => {
+            state = action.payload;
+        },
+    },
+});
+
 export const { login, logout } = authReducer.actions;
 export const { setCurrentMenu } = generalMenuReducer.actions;
 export const { setAlert } = alertReducer.actions;
 export const { addCart, replaceCart } = cartReducer.actions;
+export const { searched } = searchReducer.actions;

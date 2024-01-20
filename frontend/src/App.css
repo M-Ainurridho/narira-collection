@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Permanent+Marker&family=Roboto:wght@300;400;500;700&display=swap");
 
 html {
     scroll-behavior: smooth;
@@ -42,6 +42,10 @@ body {
     font-family: "Permanent Marker", cursive !important;
 }
 
+.font-roboto {
+    font-family: "Roboto", sans-serif !important;
+}
+
 .fade-in {
     animation: fadeIn 0.8s ease;
 }
@@ -66,6 +70,15 @@ body {
     width: 5px;
 
     background-color: #b975c1;
+}
+
+/* Font size */
+.text-2xs {
+    font-size: 10px;
+}
+
+.text-3xs {
+    font-size: 6px;
 }
 
 /* @import url('./styles/animations.css'); */

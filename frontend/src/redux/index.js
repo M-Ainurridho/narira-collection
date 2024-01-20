@@ -4,6 +4,8 @@ import {
     authReducer,
     cartReducer,
     generalMenuReducer,
+    searchReducer,
+    searched,
 } from "./reducers";
 
 export default configureStore({
@@ -12,5 +14,6 @@ export default configureStore({
         generalMenu: generalMenuReducer.reducer,
         alert: alertReducer.reducer,
         cart: cartReducer.reducer,
+        search: searchReducer.reducer,
     },
 });

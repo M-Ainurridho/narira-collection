@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useHref, useLocation, useParams } from "react-router";
 import { Fragment, useEffect, useState } from "react";
 
 import { firstUppercase, kebabCase, rupiah, setTitle } from "../../utils";
@@ -9,10 +9,13 @@ import Card from "../../components/Card";
 import Section from "../../components/Section";
 import Container from "../../components/Container";
 import Boxicons from "../../components/icons/Boxicons";
-import { sortBy } from "async";
 
 const ProductCategory = () => {
     let { category } = useParams();
+    let { search } = useLocation();
+
+    let searched = search && search.split("=")[1];
+
     category = firstUppercase(kebabCase(category, false));
 
     setTitle(category);
@@ -22,16 +25,26 @@ const ProductCategory = () => {
     const [currentOption, setCurrentOption] = useState("Harga Terendah");
 
     useEffect(() => {
-        let items = products.filter((item) => item.category === category);
+        let items = [];
+
+        if (searched) {
+            items = products.filter((item) =>
+                item.name
+                    .toLocaleLowerCase()
+                    .match(kebabCase(searched).toLocaleLowerCase())
+            );
+        } else {
+            items = products.filter((item) => item.category === category);
+        }
+
+        setItems(items);
 
         if (currentOption == "Harga Tertinggi") {
             items = items.sort((a, b) => a.price + b.price);
         } else {
             items = items.sort((a, b) => a.price - b.price);
         }
-
-        setItems(items);
-    }, [currentOption]);
+    }, [currentOption, search]);
 
     return (
         <>
@@ -43,7 +56,7 @@ const ProductCategory = () => {
                         <p className=" font-light text-neutral-500">
                             Menampilkan {items.length} produk untuk{" "}
                             <strong className="font-medium text-neutral-900">
-                                "{category}"
+                                "{searched ? kebabCase(searched) : category}"
                             </strong>
                         </p>
                         <div className="filter flex items-center">
@@ -58,13 +71,13 @@ const ProductCategory = () => {
 
                                 {filter ? (
                                     <Boxicons
-                                        icon="bx-chevron-up"
+                                        icon="chevron-up"
                                         size="xl"
                                         translate="-translate-y-0.5 translate-x-1"
                                     />
                                 ) : (
                                     <Boxicons
-                                        icon="bx-chevron-down"
+                                        icon="chevron-down"
                                         size="xl"
                                         translate="-translate-y-1 translate-x-1"
                                     />

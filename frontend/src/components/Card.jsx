@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { kebabCase, rupiah } from "../utils";
+import { imgUrl, kebabCase, rupiah } from "../utils";
 
 import Boxicons from "./icons/Boxicons";
 
@@ -9,10 +9,10 @@ const Card = ({ item }) => {
     const [wishlist, setWishlist] = useState(false);
     const navigate = useNavigate();
 
-    const imageUrl = new URL(
-        `/src/assets/images/products/${item.images[0]}`,
-        import.meta.url
-    ).href;
+    // const imageUrl = new URL(
+    //     `/src/assets/images/products/${item.images[0]}`,
+    //     import.meta.url
+    // ).href;
 
     const isDiscount = (item) => {
         return (
@@ -58,10 +58,11 @@ const Card = ({ item }) => {
                 onClick={() => setWishlist(!wishlist)}
             >
                 {!wishlist ? (
-                    <Boxicons icon="bx-heart" size="2xl" color="text-lilac" />
+                    <Boxicons icon="heart" size="2xl" color="text-lilac" />
                 ) : (
                     <Boxicons
-                        icon="bxs-heart"
+                        icon="heart"
+                        type="solid"
                         size="2xl"
                         color="text-lilac"
                         style="fade-in"
@@ -83,7 +84,7 @@ const Card = ({ item }) => {
             >
                 <div className="card-img">
                     <img
-                        src={imageUrl}
+                        src={imgUrl("products", item.images[0])}
                         className="w-full h-56 object-cover object-center"
                         alt={item.images[0]}
                     />

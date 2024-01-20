@@ -6,6 +6,7 @@ import Sidebar from "./sidebars/Sidebar";
 import Cart from "./sidebars/Cart";
 import Boxicons from "./icons/Boxicons";
 import BtnLink from "./buttons/BtnLink";
+import SearchBox from "./forms/SearchBox";
 
 const Navbar = () => {
     const { currentMenu } = useSelector((state) => state.generalMenu);
@@ -34,39 +35,6 @@ const Navbar = () => {
         }
     });
 
-    // const productFilter = () => {
-    //     const filtered = products.filter((product) =>
-    //         product.name.toLowerCase().match(search.toLowerCase())
-    //     );
-
-    //     setSearchResult(filtered);
-    // };
-
-    // const productFiltered = searchResult.map(
-    //     ({ id, name, images, description }) => {
-    //         return (
-    //             <div
-    //                 key={id}
-    //                 className="card flex gap-x-2 py-2 border-t border-lilac cursor-pointer"
-    //             >
-    //                 <div className="card-image">
-    //                     <img
-    //                         src={`/src/assets/images/products/${images[0]}`}
-    //                         alt="product-2"
-    //                         className="h-10 w-10 object-cover"
-    //                     />
-    //                 </div>
-    //                 <div className="card-body">
-    //                     <h5 className="text-sm w-36 truncate">{name}</h5>
-    //                     <p className="text-xs w-36 truncate text-neutral-500">
-    //                         {description}
-    //                     </p>
-    //                 </div>
-    //             </div>
-    //         );
-    //     }
-    // );
-
     return (
         <>
             <nav
@@ -83,24 +51,12 @@ const Navbar = () => {
                     </h1>
                 </div>
                 <div className="navbar-center basis-4/5 lg:basis-3/5">
-                    <div className="search-box relative">
-                        <Boxicons
-                            icon="bx-search"
-                            color="text-neutral-900/75"
-                            style="absolute left-4 top-3"
-                            size="xl"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Cari di Narira Collection"
-                            className="w-full bg-transparent border border-neutral-900/50 rounded-full ps-10 p-2 placeholder:text-neutral-900/75 focus:outline-0 focus:border-lilac focus:shadow focus:shadow-purple-300"
-                        />
-                    </div>
+                    <SearchBox />
                 </div>
                 <div className="navbar-end basis-1/5 flex gap-x-3">
                     <div className="cart flex items-center pe-4 border-e border-neutral-900/50">
                         <Boxicons
-                            icon="bx-cart-alt"
+                            icon="cart-alt"
                             size="2xl"
                             translate="-translate-y-1"
                             pointer={true}

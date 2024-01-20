@@ -36,18 +36,18 @@ const Router = () => {
             <Route
                 element={
                     <GuestLayout>
-                        <ProductDetail />
-                    </GuestLayout>
-                }
-                path="/p/:category/d/:id/:productName"
-            ></Route>
-            <Route
-                element={
-                    <GuestLayout>
                         <ProductCategory />
                     </GuestLayout>
                 }
                 path="/p/:category"
+            ></Route>
+            <Route
+                element={
+                    <GuestLayout>
+                        <ProductDetail />
+                    </GuestLayout>
+                }
+                path="/p/:category/d/:id/:productName"
             ></Route>
             <Route
                 element={

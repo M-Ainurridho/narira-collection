@@ -11,19 +11,18 @@ export const products = [
         name: "Baju Distro Custom",
         images: ["product-1.jpg"],
         colors: ["white", "black", "purple"],
-        sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 10,
         price: 250000,
         stock: 10,
         availableItems: [
             {
-                image: "product-1.jpg",
+                image: ["product-1.jpg", "product-3.jpg"],
                 availableSizes: [
                     {
-                        size: "S",
+                        size: "L",
                         stock: 2,
                     },
                     {
@@ -31,11 +30,11 @@ export const products = [
                         stock: 5,
                     },
                     {
-                        size: "L",
+                        size: "S",
                         stock: 4,
                     },
                 ],
-                color: "gray",
+                color: "white",
             },
             {
                 image: "product-2.jpg",
@@ -56,7 +55,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 0,
         price: 50000,
@@ -85,7 +84,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Celana Pria",
         discount: 8,
         price: 125000,
@@ -114,7 +113,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Celana Pria",
         discount: 0,
         price: 99000,
@@ -139,7 +138,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Celana Pria",
         discount: 5,
         price: 25000,
@@ -178,7 +177,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 0,
         price: 10000,
@@ -217,7 +216,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 0,
         price: 45000,
@@ -256,7 +255,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
         discount: 25,
         price: 100000,
@@ -295,7 +294,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
         discount: 0,
         price: 960000,
@@ -334,7 +333,7 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
         discount: 0,
         price: 1200000,
@@ -373,14 +372,14 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
         discount: 4,
         price: 10000000,
         stock: 10,
         availableItems: [
             {
-                image: "shoes-1.jpg",
+                image: "shoes-4.jpg",
                 availableSizes: [
                     {
                         size: "S",
@@ -394,7 +393,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "product-2.jpg",
+                image: "shoes-1.jpg",
                 availableSizes: [
                     {
                         size: "M",
@@ -412,14 +411,14 @@ export const products = [
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
         discount: 20,
         price: 100000000,
         stock: 10,
         availableItems: [
             {
-                image: "shoes-1.jpg",
+                image: "shoes-5.jpg",
                 availableSizes: [
                     {
                         size: "S",
@@ -433,7 +432,7 @@ export const products = [
                 color: "gray",
             },
             {
-                image: "product-2.jpg",
+                image: "shoes-3.jpg",
                 availableSizes: [
                     {
                         size: "M",
@@ -452,7 +451,7 @@ export const bestseller = [
         name: "Baju Distro Custom",
         images: ["product-1.jpg"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 20,
         price: 250000,
@@ -462,7 +461,7 @@ export const bestseller = [
         name: "Baju Calvin Klein",
         images: ["product-2.jpg"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 0,
         price: 50000,
@@ -472,7 +471,7 @@ export const bestseller = [
         name: "Gamis Abaya",
         images: ["product-3.jpg"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 5,
         price: 125000,
@@ -482,7 +481,7 @@ export const bestseller = [
         name: "Mukena Congsu Panjang",
         images: ["product-4.jpg"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 12,
         price: 99000,
@@ -492,7 +491,7 @@ export const bestseller = [
         name: "Baju Distro Custom",
         images: ["product-1.jpg"],
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quae",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         discount: 0,
         price: 25000,

@@ -4,21 +4,24 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import { addCart, setCurrentMenu } from "../../redux/reducers";
 
-import { rupiah } from "../../utils";
+import { firstUppercase, imgUrl, orderBySizes, rupiah } from "../../utils";
 import { products } from "../../utils/data";
 
 import BreadCrumbs from "../../components/Breadcrumbs";
 import Section from "../../components/Section";
 import Container from "../../components/Container";
+import Wrapper from "../../components/Wrapper";
+import Boxicons from "../../components/icons/Boxicons";
 
 const ProductDetail = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
-    let [imgIndex, setImgIndex] = useState(0);
-    let [quantity, setQuantity] = useState(1);
-    let [currentSize, setCurrentSize] = useState({});
-    let [allSize, setAllSize] = useState([]);
-    let [currentColor, setCurrentColor] = useState("");
+    const [imgIndex, setImgIndex] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+
+    const [currentWideImg, setCurrentWideImg] = useState("");
+    const [currentSize, setCurrentSize] = useState("");
+    const [currentColor, setCurrentColor] = useState("");
 
     const dispatch = useDispatch();
 
@@ -27,10 +30,9 @@ const ProductDetail = () => {
             dispatch(setCurrentMenu("Produk Detail"));
 
             const found = products.find((product) => product.id == id);
-            setAllSize(found.availableItems[imgIndex].availableSizes);
 
-            setCurrentSize(found.availableItems[0].availableSizes[0]);
-            setCurrentColor(found.availableItems[0].color);
+            setCurrentWideImg(found.images[0]);
+            setCurrentColor(firstUppercase(found.availableItems[0].color));
             setItem(found);
         }
 
@@ -39,88 +41,96 @@ const ProductDetail = () => {
         }
     }, [quantity]);
 
-    const allImageItems =
+    // const allImageItems =
+    //     item?.availableItems &&
+    //     item.availableItems.map((item, i) => {
+    //         return (
+    //             <img
+    //                 key={i}
+    //                 src={`/src/assets/images/products/${item.image}`}
+    //                 alt={item.image}
+    //                 className={`w-full h-24 sm:h-36 lg:h-24 rounded-md cursor-pointer object-cover ${
+    //                     imgIndex === i && "border border-2 border-neutral-700"
+    //                 }`}
+    //                 onClick={() => {
+    //                     setCurrentSize(item.availableSizes[0]);
+    //                     setCurrentColor(item.color);
+    //                     setImgIndex(i);
+    //                 }}
+    //             />
+    //         );
+    //     });
+
+    // const addNewCart = () => {
+    //     const newItem = {
+    //         id: item.id,
+    //         name: item.name,
+    //         image: item.availableItems[imgIndex].image,
+    //         category: item.category,
+    //         size: currentSize.size,
+    //         color: currentColor,
+    //         quantity: quantity,
+    //         price: item.price,
+    //         description: item.description,
+    //     };
+
+    //     dispatch(addCart(newItem));
+    // };
+
+    // All colors ready
+    const productColors =
         item?.availableItems &&
         item.availableItems.map((item, i) => {
+            const image =
+                typeof item.image === "object" ? item.image[0] : item.image;
             return (
                 <img
                     key={i}
-                    src={`/src/assets/images/products/${item.image}`}
-                    alt={item.image}
-                    className={`w-full h-24 sm:h-36 lg:h-24 rounded-md cursor-pointer object-cover ${
-                        imgIndex === i && "border border-2 border-neutral-700"
+                    src={imgUrl("products", image)}
+                    className={`inline-block h-20 w-20 object-cover me-2 rounded-lg cursor-pointer ${
+                        currentColor.toLowerCase() === item.color &&
+                        "border-2 border-lilac"
                     }`}
                     onClick={() => {
-                        setCurrentSize(item.availableSizes[0]);
-                        setAllSize(item.availableSizes);
-                        setCurrentColor(item.color);
-                        setImgIndex(i);
+                        typeof item.image === "object"
+                            ? setCurrentWideImg(item.image[0])
+                            : setCurrentWideImg(item.image);
+                        setCurrentColor(firstUppercase(item.color));
+                    }}
+                    onMouseOver={() => {
+                        typeof item.image === "object"
+                            ? setCurrentWideImg(item.image[0])
+                            : setCurrentWideImg(item.image);
                     }}
                 />
             );
         });
 
-    const colorPicker =
-        item?.availableItems &&
-        item.availableItems.map((item, i) => {
-            return (
-                <p
-                    key={i}
-                    className={`inline-block px-1.5 ${
-                        item.color === currentColor &&
-                        "pt-1 bg-white shadow rounded-md"
-                    } cursor-pointer`}
-                    onClick={() => {
-                        setCurrentSize(item.availableSizes[0]);
-                        setAllSize(item.availableSizes);
-                        setCurrentColor(item.color);
-                        setImgIndex(i);
-                    }}
-                >
-                    <span
-                        className="inline-block w-5 h-5 rounded-full"
-                        style={{
-                            backgroundColor: item.color,
-                        }}
-                    ></span>
-                </p>
-            );
-        });
-
-    const availableSizes =
-        allSize.length > 0 &&
-        allSize.map((item, sizeIndex) => {
+    // Print all sizes
+    const printAllSizes = () => {
+        let sizes =
+            item?.availableItems &&
+            item.availableItems
+                .map((item) => item.availableSizes)
+                .flat()
+                .map(({ size }) => size)
+                .filter((size, i, arr) => i === arr.indexOf(size));
+        sizes = orderBySizes(sizes);
+        return sizes.map((size, idx) => {
             return (
                 <span
-                    key={sizeIndex}
-                    className={`px-3 cursor-pointer ${
-                        item.size == currentSize.size
-                            ? "py-1 bg-white text-neutral-900 rounded-md shadow"
+                    key={idx}
+                    className={`border px-4 py-1 me-2 rounded-lg  cursor-pointer ${
+                        currentSize == size
+                            ? "border-lilac text-lilac"
                             : "text-neutral-900/50"
                     }`}
-                    onClick={() => {
-                        setCurrentSize(item);
-                    }}
+                    onClick={() => setCurrentSize(size)}
                 >
-                    {item.size}
+                    {size}
                 </span>
             );
         });
-
-    const addNewCart = () => {
-        const newItem = {
-            id: item.id,
-            name: item.name,
-            image: item.availableItems[imgIndex].image,
-            category: item.category,
-            size: currentSize.size,
-            color: currentColor,
-            quantity: quantity,
-            price: item.price,
-            description: item.description,
-        };
-
-        dispatch(addCart(newItem));
     };
 
     return (
@@ -128,135 +138,132 @@ const ProductDetail = () => {
             <BreadCrumbs />
 
             <Section sectionId="product-detail">
-                <Container style="mt-8">
-                    <div className="grid lg:grid-cols-3 gap-6">
-                        <div className="self-start">
+                <Container style="mt-8 mb-8">
+                    <Wrapper style="flex gap-x-6 font-roboto">
+                        <div className="product-images basis-1/2">
                             <img
-                                src={`/src/assets/images/products/${
-                                    item?.availableItems != undefined &&
-                                    item.availableItems[imgIndex].image
-                                }`}
-                                alt="product1"
-                                className="wide-img rounded-lg w-full object-cover object-center"
+                                className="w-full object-cover object-center rounded-md"
+                                style={{ height: "600px" }}
+                                src={imgUrl(
+                                    "products",
+                                    currentWideImg && currentWideImg
+                                )}
+                                alt="product-detail"
                             />
-                            <div className="choice-images my-3 grid grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-4 justify-between">
-                                {allImageItems}
-                            </div>
                         </div>
-                        {/* <div className="basis-3/5">
-                            <div className="detail-header border-b pb-5">
-                                <h1 className="font-bold text-2xl md:text-4xl">
-                                    {item?.name}
-                                </h1>
-                                <p className="font-medium md:text-xl my-2">
-                                    {rupiah(item?.price)}
-                                </p>
-                                <p className="ratings">
-                                    <span className="inline-block translate-y-0.5">
-                                        <box-icon
-                                            type="solid"
-                                            name="star"
-                                            color="gold"
-                                            size="xs"
-                                        ></box-icon>
+
+                        <div className="product-description basis-1/2">
+                            <h1 className="text-2xl font-bold">{item.name}</h1>
+                            <div className="flex items-center gap-x-2 text-sm">
+                                <div className="rating flex items-center">
+                                    <Boxicons
+                                        icon="star"
+                                        type="solid"
+                                        color="text-yellow-400"
+                                        translate="-translate-y-1.5"
+                                    />
+                                    <span>
+                                        5.0{" "}
+                                        <i className="text-neutral-900/50">
+                                            (0 rating)
+                                        </i>
                                     </span>
-                                    <span className="text-xs ms-2">
-                                        4.8 (94 Ulasan)
-                                    </span>
+                                </div>
+                                <Boxicons
+                                    icon="circle"
+                                    type="solid"
+                                    size="3xs"
+                                />
+                                <p className="sold text-neutral-900/50">
+                                    Terjual 0
                                 </p>
                             </div>
 
-                            <div className="self-startdetail-body py-3">
-                                <div className="choose-size mb-4 text-sm">
-                                    <h6 className="text-neutral-400 mb-2 tracking-wide">
-                                        PILIH UKURAN
-                                    </h6>
-                                    <div className="inline-block bg-neutral-100 border rounded-md py-1.5 px-0.5">
-                                        {availableSizes}
-                                    </div>
-
-                                    {currentSize?.stock ? (
-                                        <span className="ms-3">
-                                            Tersedia {currentSize.stock} lagi
-                                        </span>
-                                    ) : (
-                                        <span className="ms-3 text-red-500">
-                                            HABIS!!!
-                                        </span>
-                                    )}
-                                </div>
-                                <div className="choose-color mb-4 text-sm">
-                                    <h6 className="text-neutral-400 mb-2 tracking-wide">
-                                        WARNA
-                                    </h6>
-                                    <div className="inline-block bg-neutral-100 border rounded-md pt-1 pb-1 px-0.5">
-                                        {colorPicker}
-                                    </div>
-                                </div>
-                                <div className="description text-sm">
-                                    <h6 className="text-neutral-400 mb-2 tracking-wide">
-                                        DESKRIPSI
-                                    </h6>
+                            <div className="product-price mb-4 mt-3">
+                                {item.discount ? (
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Eius, quae. Quo, quae
-                                        odio sequi debitis unde earum nemo
-                                        officia voluptatibus dolorem provident
-                                        repellat consequuntur sapiente quos quis
-                                        magnam sint ad reprehenderit? Asperiores
-                                        rem voluptas
+                                        <span className="text-3xl font-semibold">
+                                            {rupiah(
+                                                item.price -
+                                                    (item.discount / 100) *
+                                                        item.price
+                                            )}
+                                        </span>
+                                        <del className="text-neutral-900/50 ms-1">
+                                            {rupiah(item.price)}
+                                        </del>
+                                        <span className="inline-block bg-red-500 text-white py-0.5 px-1.5 rounded-md text-xs ms-1 -translate-y-0.5">
+                                            {item.discount}%
+                                        </span>
                                     </p>
+                                ) : (
+                                    <p className="text-3xl font-semibold">
+                                        {item?.price && rupiah(item.price)}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div className="size-and-color border-y py-4">
+                                <div className="colors mb-4">
+                                    <p className="font-medium mb-2">
+                                        Pilih warna:
+                                        <span className="text-neutral-900/50 ms-1">
+                                            {currentColor}
+                                        </span>
+                                    </p>
+                                    <div>{productColors}</div>
+                                </div>
+                                <div className="sizes">
+                                    <p className="font-medium mb-2">
+                                        Pilih ukuran:
+                                        <span className="text-neutral-900/50 ms-1">
+                                            {currentSize}
+                                        </span>
+                                    </p>
+                                    <div>{printAllSizes()}</div>
+                                </div>
+                            </div>
+
+                            <div className="product-details">
+                                <h5 className="text-lilac">
+                                    <span className="inline-block border-b-2 border-b-lilac py-2 px-8">
+                                        Detail
+                                    </span>
+                                </h5>
+
+                                <div className="py-3">
+                                    <div>
+                                        <p>
+                                            Kategori:
+                                            <span className="font-medium ms-1">
+                                                {item.category}
+                                            </span>
+                                        </p>
+                                        <p>
+                                            Merk:
+                                            <span className="font-medium ms-1">
+                                                Converse
+                                            </span>
+                                        </p>
+                                        <p>
+                                            Kondisi:
+                                            <span className="font-medium ms-1">
+                                                Baru
+                                            </span>
+                                        </p>
+                                        <p>
+                                            Minimal Pembelian:
+                                            <span className="font-medium ms-1">
+                                                1
+                                            </span>
+                                        </p>
+                                    </div>
+
+                                    <p className="mt-4">{item.description}</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="self-start rounded-md border ">
-                            <h3 className="font-semibold p-3 text-lg">
-                                Atur Pesanan
-                            </h3>
-                            <hr />
-                            <div className="product-quantity p-3  flex justify-between items-center text-xs md:text-sm">
-                                <h6 className="text-neutral-400">
-                                    KUANTITAS PRODUK
-                                </h6>
-                                <div className="bg-neutral-100 flex items-center p-1 rounded-md border">
-                                    <i
-                                        className="bx bx-minus bg-white text-neutral-400 hover:text-neutral-800 px-1 rounded-md cursor-pointer text-base md:text-xl shadow"
-                                        onClick={() => setQuantity(--quantity)}
-                                    ></i>
-                                    <div className="quantity px-3">
-                                        {quantity}
-                                    </div>
-                                    <i
-                                        className="bx bx-plus bg-white text-neutral-400 hover:text-neutral-800 px-1 rounded-md cursor-pointer text-base md:text-xl shadow"
-                                        onClick={() => setQuantity(++quantity)}
-                                    ></i>
-                                </div>
-                            </div>
-                            <hr />
-                            <div className="estimasi-total p-3 flex justify-between items-center text-xs md:text-sm">
-                                <h6 className="text-neutral-400">
-                                    ESTIMASI SUBTOTAL
-                                </h6>
-                                <div className="text-base font-medium">
-                                    {rupiah(item.price * quantity)}
-                                </div>
-                            </div>
-                            <div className="p-3">
-                                <button
-                                    className="bg-lilac hover:bg-lilac-hover duration-100 w-full text-sm text-white p-1.5 mb-2.5 rounded-full flex items-center justify-center"
-                                    onClick={addNewCart}
-                                >
-                                    <i className="bx bx-cart-alt me-2 text-lg"></i>
-                                    Tambah Keranjang
-                                </button>
-                                <button className="bg-neutral-100 hover:bg-neutral-200 duration-100 w-full text-sm p-1.5 mb-2.5 rounded-full flex items-center justify-center">
-                                    <i className="bx bx-heart me-2 text-lg"></i>
-                                    Tambah ke Favorit
-                                </button>
-                            </div>
-                        </div> */}
-                    </div>
+                    </Wrapper>
                 </Container>
             </Section>
         </>

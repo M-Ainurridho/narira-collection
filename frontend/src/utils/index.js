@@ -106,3 +106,26 @@ export const kebabCase = (word, cond) => {
 export const setTitle = (title) => {
     document.title = title + " | Narira Collection";
 };
+
+export const orderBySizes = (sizes) => {
+    const allSizes = [];
+    sizes = sizes != undefined && sizes;
+
+    for (let i = 0; i < sizes.length; i++) {
+        if (sizes.includes("S") && !allSizes.includes("S")) {
+            allSizes.push("S");
+        } else if (sizes.includes("M") && !allSizes.includes("M")) {
+            allSizes.push("M");
+        } else if (sizes.includes("L") && !allSizes.includes("L")) {
+            allSizes.push("L");
+        } else if (sizes.includes("XL") && !allSizes.includes("XL")) {
+            allSizes.push("XL");
+        }
+    }
+
+    return allSizes;
+};
+
+export const imgUrl = (folder, img) => {
+    return new URL(`/src/assets/images/${folder}/${img}`, import.meta.url).href;
+};

@@ -137,7 +137,7 @@ export const products = [
     },
     {
         id: 5,
-        name: "Baju Distro Custom",
+        name: "Celana Kulot Dengkul",
         images: ["product-8.jpg"],
         colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
@@ -298,9 +298,6 @@ export const products = [
     {
         id: 9,
         name: "Reebok Air Plane",
-        images: ["shoes-2.jpg"],
-        colors: ["white", "black", "purple"],
-        sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
@@ -310,7 +307,7 @@ export const products = [
         stock: 10,
         availableItems: [
             {
-                image: ["shoes-1.jpg"],
+                image: ["shoes-2.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -338,9 +335,6 @@ export const products = [
     {
         id: 10,
         name: "Adidas Lion",
-        images: ["shoes-3.jpg"],
-        colors: ["white", "black", "purple"],
-        sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
@@ -350,7 +344,7 @@ export const products = [
         stock: 10,
         availableItems: [
             {
-                image: ["shoes-1.jpg"],
+                image: ["shoes-3.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -361,17 +355,17 @@ export const products = [
                         stock: 4,
                     },
                 ],
-                color: "gray",
+                color: "biru",
             },
             {
-                image: ["product-2.jpg"],
+                image: ["shoes-4.jpg"],
                 availableSizes: [
                     {
                         size: "M",
                         stock: 3,
                     },
                 ],
-                color: "black",
+                color: "hitam",
             },
         ],
     },
@@ -379,8 +373,6 @@ export const products = [
         id: 11,
         name: "Nike Stephen Curry Limited Edition",
         images: ["shoes-4.jpg"],
-        colors: ["white", "black", "purple"],
-        sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
@@ -390,7 +382,7 @@ export const products = [
         stock: 10,
         availableItems: [
             {
-                image: ["shoes-4.jpg"],
+                image: ["shoes-4.jpg", "product-6.jpg"],
                 availableSizes: [
                     {
                         size: "S",
@@ -401,7 +393,7 @@ export const products = [
                         stock: 4,
                     },
                 ],
-                color: "gray",
+                color: "hitam",
             },
             {
                 image: ["shoes-1.jpg"],
@@ -411,7 +403,17 @@ export const products = [
                         stock: 3,
                     },
                 ],
-                color: "black",
+                color: "abu-abu",
+            },
+            {
+                image: ["shoes-2.jpg", "shoes-3.jpg", "shoes-5.jpg"],
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "biru",
             },
         ],
     },
@@ -462,51 +464,170 @@ export const bestseller = [
         id: 1,
         name: "Baju Distro Custom",
         images: ["product-1.jpg"],
+        colors: ["white", "black", "purple"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
-        discount: 20,
+        brand: "Distro",
+        discount: 10,
         price: 250000,
+        stock: 10,
+        availableItems: [
+            {
+                image: ["product-1.jpg", "product-3.jpg"],
+                availableSizes: [
+                    {
+                        size: "L",
+                        stock: 2,
+                    },
+                    {
+                        size: "M",
+                        stock: 5,
+                    },
+                    {
+                        size: "S",
+                        stock: 4,
+                    },
+                ],
+                color: "white",
+            },
+            {
+                image: ["product-2.jpg"],
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "black",
+            },
+        ],
     },
     {
         id: 2,
         name: "Baju Calvin Klein",
         images: ["product-2.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
+        brand: "Calvin Klein",
         discount: 0,
         price: 50000,
+        stock: 10,
+        availableItems: [
+            {
+                image: ["product-2.jpg"],
+                availableSizes: [
+                    {
+                        size: "S",
+                        stock: 2,
+                    },
+                    {
+                        size: "XL",
+                        stock: 4,
+                    },
+                ],
+                color: "black",
+            },
+        ],
     },
     {
         id: 3,
-        name: "Gamis Abaya",
-        images: ["product-3.jpg"],
+        name: "Celana Joger",
+        images: ["product-5.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
-        category: "Pakaian Pria",
-        discount: 5,
+        category: "Celana Pria",
+        brand: "Shafira",
+        discount: 8,
         price: 125000,
+        stock: 10,
+        availableItems: [
+            {
+                image: ["product-5.jpg"],
+                availableSizes: [
+                    {
+                        size: "S",
+                        stock: 2,
+                    },
+                    {
+                        size: "M",
+                        stock: 4,
+                    },
+                ],
+                color: "black",
+            },
+        ],
     },
     {
         id: 4,
-        name: "Mukena Congsu Panjang",
-        images: ["product-4.jpg"],
+        name: "Celana Pendek Remaja",
+        images: ["product-7.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
-        category: "Pakaian Pria",
-        discount: 12,
+        Category: "Celana Pria",
+        brand: "Jeans Denim",
+        discount: 0,
         price: 99000,
+        stock: 10,
+        availableItems: [
+            {
+                image: ["product-7.jpg"],
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "navy",
+            },
+        ],
     },
     {
         id: 5,
-        name: "Baju Distro Custom",
-        images: ["product-1.jpg"],
+        name: "Celana Kulot Dengkul",
+        images: ["product-8.jpg"],
+        colors: ["white", "black", "purple"],
+        sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
-        category: "Pakaian Pria",
-        discount: 0,
+        category: "Celana Pria",
+        brand: "Distro",
+        discount: 5,
         price: 25000,
+        stock: 10,
+        availableItems: [
+            {
+                image: ["product-8.jpg"],
+                availableSizes: [
+                    {
+                        size: "S",
+                        stock: 2,
+                    },
+                    {
+                        size: "M",
+                        stock: 4,
+                    },
+                ],
+                color: "orange",
+            },
+            {
+                image: ["product-6.jpg"],
+                availableSizes: [
+                    {
+                        size: "M",
+                        stock: 3,
+                    },
+                ],
+                color: "black",
+            },
+        ],
     },
 ];
 

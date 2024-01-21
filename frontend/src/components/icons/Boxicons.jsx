@@ -1,13 +1,23 @@
-const Boxicons = ({ icon, type, color, size, translate, pointer, style }) => {
+const Boxicons = ({
+    icon,
+    type,
+    color,
+    size,
+    translate,
+    cursor,
+    style,
+    onClick,
+}) => {
     return (
         <i
             className={`boxicons inline-block bx-fw bx ${
                 type === "solid" ? `bxs-${icon}` : `bx-${icon}`
             } ${color ? color : "text-neutral-900"} ${
                 size ? `text-${size}` : "text-lg"
-            } ${translate ? translate : ""} ${pointer && "cursor-pointer"} ${
-                style ? style : ""
-            }`}
+            } ${translate ? translate : ""} cursor-${
+                cursor ? cursor : "auto"
+            } ${style ? style : ""}`}
+            onClick={onClick && onClick}
         ></i>
     );
 };

@@ -20,11 +20,13 @@ import Section from "../../components/Section";
 import Container from "../../components/Container";
 import Wrapper from "../../components/Wrapper";
 import Boxicons from "../../components/icons/Boxicons";
+import BtnEvent from "../../components/buttons/BtnEvent";
 
 const ProductDetail = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
-    const [quantity, setQuantity] = useState(1);
+    let [quantity, setQuantity] = useState(1);
+    let [startImgIndex, setStartImgIndex] = useState(0);
 
     const [currentWideImg, setCurrentWideImg] = useState("");
     const [currentSize, setCurrentSize] = useState("");
@@ -49,20 +51,25 @@ const ProductDetail = () => {
             setCurrentColor(found.availableItems[0].color);
             setItem(found);
         }
-
-        if (quantity < 1) {
-            setQuantity(1);
-        }
-    }, [quantity]);
+    }, []);
 
     // All Products Images
-    const printAllImages = () => {
+    const printAllImages = (startIndex) => {
         let images =
             item?.availableItems &&
             item.availableItems.map(({ image }) => image).flat();
 
-        return (
+        let limit = 5;
+        images =
             images != undefined &&
+            images
+                .filter((img, i) => {
+                    return i >= startImgIndex && img;
+                })
+                .slice(0, limit);
+
+        return (
+            images &&
             images.map((img, i) => {
                 return (
                     <img
@@ -158,8 +165,28 @@ const ProductDetail = () => {
                                 alt="product-detail"
                             />
 
-                            <div className="all-product-images grid grid-cols-4 md:grid-cols-5 gap-x-4 mt-3">
-                                {printAllImages()}
+                            <div className="all-product-images grid grid-cols-4 md:grid-cols-5 gap-2 mt-3 relative">
+                                <Boxicons
+                                    icon="chevron-left"
+                                    size="3xl"
+                                    style="absolute top-[40%] -left-4 h-8 w-8 bg-neutral-900/75 rounded-full flex justify-center items-center"
+                                    color="text-lilac"
+                                    cursor="pointer"
+                                    onClick={() =>
+                                        setStartImgIndex(--startImgIndex)
+                                    }
+                                />
+                                {printAllImages(startImgIndex)}
+                                <Boxicons
+                                    icon="chevron-right"
+                                    size="3xl"
+                                    style="absolute top-[40%] -right-4 h-8 w-8 bg-neutral-900/75 rounded-full flex justify-center items-center"
+                                    color="text-lilac"
+                                    cursor="pointer"
+                                    onClick={() =>
+                                        setStartImgIndex(++startImgIndex)
+                                    }
+                                />
                             </div>
 
                             <div className="border-b lg:border-0 my-4"></div>
@@ -281,7 +308,110 @@ const ProductDetail = () => {
                     </Wrapper>
                 </Container>
 
-                {/* <div className="fixed left-0 right-0 bottom-0 h-20 bg-white border-t"></div> */}
+                <div
+                    className="fixed left-0 right-0 bottom-0 h-20 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-white border-t shadow-lg"
+                    style={{ borderRadius: "25px 25px 0 0" }}
+                >
+                    <div className="flex items-center">
+                        <img
+                            className="h-12 w-12 rounded-md"
+                            src={imgUrl(
+                                "products",
+                                item?.availableItems &&
+                                    item.availableItems[0].image[0]
+                            )}
+                            alt={currentWideImg}
+                        />
+                        <p className="ms-2">{item.name}</p>
+                    </div>
+                    <div className="flex items-center gap-x-1">
+                        <div className="grid grid-cols-2 gap-x-5 me-8">
+                            <div className="self-center flex items-center bg-neutral-200 py-1 rounded-md">
+                                <Boxicons
+                                    icon="minus"
+                                    color={
+                                        quantity <= 1
+                                            ? "text-neutral-900/50"
+                                            : "text-lilac"
+                                    }
+                                    translate="-translate-y-2"
+                                    style="w-full px-2 py-1"
+                                    onClick={() =>
+                                        quantity >= 2 && setQuantity(--quantity)
+                                    }
+                                    cursor={
+                                        quantity <= 1
+                                            ? "not-allowed"
+                                            : "pointer"
+                                    }
+                                />
+                                <span className="text-center w-full px-2">
+                                    {quantity}
+                                </span>
+                                <Boxicons
+                                    icon="plus"
+                                    color="text-lilac"
+                                    translate="-translate-y-2"
+                                    style="w-full px-2 py-1"
+                                    cursor="pointer"
+                                    onClick={() => setQuantity(++quantity)}
+                                />
+                            </div>
+                            <div className="text-sm">
+                                <h6>Total harga:</h6>
+                                <p>
+                                    {item.discount ? (
+                                        <span className="font-bold">
+                                            {rupiah(
+                                                (item.price -
+                                                    (item.discount / 100) *
+                                                        item.price) *
+                                                    quantity
+                                            )}
+                                        </span>
+                                    ) : (
+                                        <span className="font-bold">
+                                            {item?.price &&
+                                                rupiah(item.price * quantity)}
+                                        </span>
+                                    )}
+                                </p>
+                            </div>
+                        </div>
+
+                        <BtnEvent
+                            bgcolor="bg-white"
+                            color="text-lilac"
+                            text="Masukan keranjang"
+                            size="sm"
+                            contentPadding="py-3 px-4"
+                            border="border border-lilac"
+                            radius="full"
+                            hover="hover:shadow-lg hover:shadow-purple-300 duration-100"
+                        />
+
+                        <BtnEvent
+                            bgcolor="bg-lilac"
+                            color="text-white"
+                            text="Beli Sekarang"
+                            size="sm"
+                            contentPadding="py-3 px-4"
+                            radius="full"
+                            hover="hover:shadow-lg hover:shadow-purple-300 duration-100"
+                        />
+
+                        <div
+                            className="wishlist-icon  w-9 h-9 leading-7 bg-neutral-200 text-center rounded-full cursor-pointer"
+                            onClick={() => setWishlist(!wishlist)}
+                        >
+                            <Boxicons
+                                icon="heart"
+                                size="2xl"
+                                color="text-lilac"
+                            />
+                        </div>
+                    </div>
+                </div>
             </Section>
         </>
     );

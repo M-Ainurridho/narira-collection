@@ -84,9 +84,16 @@ const Card = ({ item }) => {
             >
                 <div className="card-img">
                     <img
-                        src={imgUrl("products", item.images[0])}
+                        src={imgUrl(
+                            "products",
+                            item?.availableItems &&
+                                item.availableItems[0].image[0]
+                        )}
                         className="w-full h-56 object-cover object-center"
-                        alt={item.images[0]}
+                        alt={
+                            item?.availableItems &&
+                            item.availableItems[0].image[0]
+                        }
                     />
                 </div>
                 <div className="card-body font-semibold">

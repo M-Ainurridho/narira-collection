@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHref } from "react-router-dom";
 
-import Sidebar from "./sidebars/Sidebar";
 import Cart from "./sidebars/Cart";
 import Boxicons from "./icons/Boxicons";
 import BtnLink from "./buttons/BtnLink";

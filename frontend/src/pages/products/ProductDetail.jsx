@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import { useDispatch } from "react-redux";
-import { setCurrentMenu } from "../../redux/reducers";
 
 import {
     firstUppercase,
@@ -26,7 +25,11 @@ const ProductDetail = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     let [quantity, setQuantity] = useState(1);
+
     let [startImgIndex, setStartImgIndex] = useState(0);
+    let [nextImg, setNextImg] = useState(false);
+    let [prevImg, setPrevImg] = useState(true);
+    let [slideImages, setSlideImages] = useState([]);
 
     const [currentWideImg, setCurrentWideImg] = useState("");
     const [currentSize, setCurrentSize] = useState("");
@@ -42,48 +45,53 @@ const ProductDetail = () => {
     );
 
     useEffect(() => {
+        const found = products.find((product) => product.id == id);
+
         if (!item?.name) {
-            dispatch(setCurrentMenu("Produk Detail"));
-
-            const found = products.find((product) => product.id == id);
-
             setCurrentWideImg(found.availableItems[0].image[0]);
             setCurrentColor(found.availableItems[0].color);
             setItem(found);
         }
-    }, []);
 
-    // All Products Images
-    const printAllImages = (startIndex) => {
-        let images =
-            item?.availableItems &&
-            item.availableItems.map(({ image }) => image).flat();
+        let images = found.availableItems.map(({ image }) => image).flat();
 
-        let limit = 5;
         images =
             images != undefined &&
-            images
-                .filter((img, i) => {
-                    return i >= startImgIndex && img;
-                })
-                .slice(0, limit);
+            images.filter((img, i) => {
+                return i >= startImgIndex && img;
+            });
 
-        return (
-            images &&
-            images.map((img, i) => {
-                return (
-                    <img
-                        key={i}
-                        src={imgUrl("products", img)}
-                        className={`w-full h-28 sm:h-36 lg:h-28 object-cover rounded-md ${
-                            currentWideImg == img && "border-2 border-lilac"
-                        } cursor-pointer`}
-                        onClick={() => setCurrentWideImg(img)}
-                    />
-                );
-            })
-        );
-    };
+        startImgIndex > 0 ? setNextImg(true) : setNextImg(false);
+
+        if (window.innerWidth > 768) {
+            images.length < 6
+                ? setPrevImg(false)
+                : (setPrevImg(true), (images = images.slice(0, 5)));
+        } else {
+            images.length < 5
+                ? setPrevImg(false)
+                : (setPrevImg(true), (images = images.slice(0, 4)));
+        }
+
+        console.log(window.innerWidth);
+        setSlideImages(images);
+    }, [startImgIndex]);
+
+    // All Products Images
+    const printAllImages =
+        slideImages.length > 0 &&
+        slideImages.map((img, i) => {
+            return (
+                <img
+                    key={i}
+                    src={imgUrl("products", img)}
+                    className={`w-full h-28 sm:h-36 lg:h-28 object-cover rounded-md ${
+                        currentWideImg == img && "border-2 border-lilac"
+                    } cursor-pointer`}
+                    onClick={() => setCurrentWideImg(img)}
+                />
+            );
+        });
 
     // All colors ready
     const productColors =
@@ -166,27 +174,32 @@ const ProductDetail = () => {
                             />
 
                             <div className="all-product-images grid grid-cols-4 md:grid-cols-5 gap-2 mt-3 relative">
-                                <Boxicons
-                                    icon="chevron-left"
-                                    size="3xl"
-                                    style="absolute top-[40%] -left-4 h-8 w-8 bg-neutral-900/75 rounded-full flex justify-center items-center"
-                                    color="text-lilac"
-                                    cursor="pointer"
-                                    onClick={() =>
-                                        setStartImgIndex(--startImgIndex)
-                                    }
-                                />
-                                {printAllImages(startImgIndex)}
-                                <Boxicons
-                                    icon="chevron-right"
-                                    size="3xl"
-                                    style="absolute top-[40%] -right-4 h-8 w-8 bg-neutral-900/75 rounded-full flex justify-center items-center"
-                                    color="text-lilac"
-                                    cursor="pointer"
-                                    onClick={() =>
-                                        setStartImgIndex(++startImgIndex)
-                                    }
-                                />
+                                {nextImg && (
+                                    <Boxicons
+                                        icon="chevron-left"
+                                        size="3xl"
+                                        style="absolute top-[40%] -left-3 md:-left-4 h-8 w-8 bg-neutral-900/75 rounded-full flex justify-center items-center"
+                                        color="text-lilac"
+                                        cursor="pointer"
+                                        onClick={() =>
+                                            setStartImgIndex(--startImgIndex)
+                                        }
+                                    />
+                                )}
+                                {printAllImages}
+                                {prevImg && (
+                                    <Boxicons
+                                        icon="chevron-right"
+                                        size="3xl"
+                                        style="absolute top-[40%] -right-3 md:-right-4 h-8 w-8 bg-neutral-900/75 rounded-full flex justify-center items-center"
+                                        color="text-lilac"
+                                        cursor="pointer"
+                                        onClick={() => {
+                                            setNextImg(true);
+                                            setStartImgIndex(++startImgIndex);
+                                        }}
+                                    />
+                                )}
                             </div>
 
                             <div className="border-b lg:border-0 my-4"></div>

@@ -382,7 +382,7 @@ export const products = [
         stock: 10,
         availableItems: [
             {
-                image: ["shoes-4.jpg", "product-6.jpg"],
+                image: ["shoes-4.jpg", "product-6.jpg", "product-2.jpg"],
                 availableSizes: [
                     {
                         size: "S",

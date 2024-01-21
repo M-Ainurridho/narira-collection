@@ -1,24 +1,32 @@
-import { useReducer } from 'react'
-import { useDispatch } from 'react-redux'
-import { setAlert } from '../../redux/reducers'
+import { useDispatch } from "react-redux";
+import { setAlert } from "../../redux/reducers";
+import Boxicons from "../icons/Boxicons";
 
 const FloatAlert = ({ msg }) => {
-   const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-   setTimeout(() => {
-      dispatch(setAlert({ status: null, msg: '' }))
-   }, 3000)
+    setTimeout(() => {
+        dispatch(setAlert({ status: null, msg: "" }));
+    }, 3000);
 
-   return (
-      <>
-         <div className="absolute bottom-5 bg-green-500 text-white p-2 px-4 rounded-lg flex items-center">
-            <p>{msg}</p>
-            <span className="flex items-center ms-6">
-               <box-icon name="x" color="white"></box-icon>
-            </span>
-         </div>
-      </>
-   )
-}
+    return (
+        <>
+            <div
+                className={`fixed bottom-5 left-[40%] ${
+                    status ? "bg-green-500" : "bg-red-500"
+                } text-white p-2 rounded-lg flex items-center z-20 text-center`}
+            >
+                <p>{msg}</p>
+                <Boxicons
+                    icon="x"
+                    color="white"
+                    size="xl"
+                    translate="-translate-y-1"
+                    style="ms-4"
+                />
+            </div>
+        </>
+    );
+};
 
-export default FloatAlert
+export default FloatAlert;

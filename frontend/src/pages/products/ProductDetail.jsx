@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
     firstUppercase,
@@ -20,6 +20,7 @@ import Container from "../../components/Container";
 import Wrapper from "../../components/Wrapper";
 import Boxicons from "../../components/icons/Boxicons";
 import BtnEvent from "../../components/buttons/BtnEvent";
+import { addCart, setAlert } from "../../redux/reducers";
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -36,6 +37,8 @@ const ProductDetail = () => {
     const [currentColor, setCurrentColor] = useState("");
 
     const dispatch = useDispatch();
+    const { carts } = useSelector((state) => state.cart);
+
     const { category, productName } = useParams();
 
     setTitle(
@@ -73,7 +76,6 @@ const ProductDetail = () => {
                 : (setPrevImg(true), (images = images.slice(0, 4)));
         }
 
-        console.log(window.innerWidth);
         setSlideImages(images);
     }, [startImgIndex]);
 
@@ -154,6 +156,33 @@ const ProductDetail = () => {
                 </span>
             );
         });
+    };
+
+    // Masukan Item ke dalam keranjang
+    const addNewCart = () => {
+        if (!currentColor || !currentSize) {
+            return dispatch(
+                setAlert({
+                    status: false,
+                    msg: "Silahkan Isi pilihan warna/ukuran",
+                })
+            );
+        }
+
+        const newCart = {
+            id: item.id,
+            name: item.name,
+            image: item.availableItems[0].image[0],
+            category: item.category,
+            brand: item.brand,
+            color: currentColor,
+            size: currentSize,
+            discount: item.discount,
+            price: item.price,
+            quantity: quantity,
+        };
+
+        dispatch(addCart(newCart));
     };
 
     return (
@@ -322,12 +351,12 @@ const ProductDetail = () => {
                 </Container>
 
                 <div
-                    className="fixed left-0 right-0 bottom-0 h-20 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-white border-t shadow-lg"
+                    className="fixed left-0 right-0 bottom-0 z-10 h-20 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-white border-t shadow-lg"
                     style={{ borderRadius: "25px 25px 0 0" }}
                 >
                     <div className="flex items-center">
                         <img
-                            className="h-12 w-12 rounded-md"
+                            className="h-14 w-14 object-cover rounded-md"
                             src={imgUrl(
                                 "products",
                                 item?.availableItems &&
@@ -339,33 +368,31 @@ const ProductDetail = () => {
                     </div>
                     <div className="flex items-center gap-x-1">
                         <div className="grid grid-cols-2 gap-x-5 me-8">
-                            <div className="self-center flex items-center bg-neutral-200 py-1 rounded-md">
+                            <div className="self-center bg-neutral-200 flex items-center rounded-md border">
                                 <Boxicons
                                     icon="minus"
                                     color={
-                                        quantity <= 1
-                                            ? "text-neutral-900/50"
-                                            : "text-lilac"
+                                        quantity > 1
+                                            ? "text-lilac hover:text-lilac-hover"
+                                            : "text-neutral-900/50"
                                     }
-                                    translate="-translate-y-2"
-                                    style="w-full px-2 py-1"
+                                    translate="translate-y-0.5"
+                                    style="h-full w-full bg-white py-1 px-2  rounded-md text-sm shadow"
+                                    cursor={
+                                        quantity > 1 ? "pointer" : "not-allowed"
+                                    }
                                     onClick={() =>
                                         quantity >= 2 && setQuantity(--quantity)
                                     }
-                                    cursor={
-                                        quantity <= 1
-                                            ? "not-allowed"
-                                            : "pointer"
-                                    }
                                 />
-                                <span className="text-center w-full px-2">
+                                <div className="quantity px-4 py-1">
                                     {quantity}
-                                </span>
+                                </div>
                                 <Boxicons
                                     icon="plus"
                                     color="text-lilac"
-                                    translate="-translate-y-2"
-                                    style="w-full px-2 py-1"
+                                    translate="translate-y-0.5"
+                                    style="h-full w-full bg-white py-1 px-2 hover:text-lilac-hover rounded-md text-sm shadow"
                                     cursor="pointer"
                                     onClick={() => setQuantity(++quantity)}
                                 />
@@ -401,6 +428,7 @@ const ProductDetail = () => {
                             border="border border-lilac"
                             radius="full"
                             hover="hover:shadow-lg hover:shadow-purple-300 duration-100"
+                            onClick={addNewCart}
                         />
 
                         <BtnEvent

@@ -1,14 +1,22 @@
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
+import Navbar from "../../components/Navbar";
+import { useSelector } from "react-redux";
+
+import FloatAlert from "../../components/alerts/FloatAlert";
+import Footer from "../../components/Footer";
 
 const GuestLayout = ({ children }) => {
-   return (
-      <div className="grid min-h-screen">
-         <Navbar />
-         <main className="">{children}</main>
-         <Footer />
-      </div>
-   )
-}
+    const { status, msg } = useSelector((state) => state.alert);
 
-export default GuestLayout
+    return (
+        <div className="grid min-h-screen">
+            <Navbar />
+            <main className="">
+                {children}
+                {status != null && <FloatAlert msg={msg} />}
+            </main>
+            <Footer />
+        </div>
+    );
+};
+
+export default GuestLayout;

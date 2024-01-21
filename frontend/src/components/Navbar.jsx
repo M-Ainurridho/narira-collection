@@ -37,7 +37,7 @@ const Navbar = () => {
     return (
         <>
             <nav
-                className={`fixed left-0 right-0 top-0 h-20 flex justify-between items-center px-4 md:px-8 lg:px-16 z-20 gap-x-4`}
+                className={`fixed left-0 right-0 top-0 h-20 flex justify-between items-center px-4 md:px-8 lg:px-16 z-10 gap-x-4`}
             >
                 <div className="navbar-start basis-1/5 hidden lg:block">
                     <h1 className="font-permanent-marker hidden lg:block text-5xl">
@@ -53,13 +53,23 @@ const Navbar = () => {
                     <SearchBox />
                 </div>
                 <div className="navbar-end basis-1/5 flex gap-x-3">
-                    <div className="cart flex items-center pe-4 border-e border-neutral-900/50">
+                    <div
+                        className="cart flex items-center pe-4 border-e border-neutral-900/50 cursor-pointer relative"
+                        onClick={() => setCart(!cart)}
+                    >
                         <Boxicons
                             icon="cart-alt"
-                            size="2xl"
+                            color="text-neutral-900/75"
+                            size="3xl"
                             translate="-translate-y-1"
-                            pointer={true}
+                            cursor="pointer"
                         />
+
+                        {carts.length > 0 && (
+                            <span className="bg-red-400 w-6 h-5 text-white text-xs text-center leading-5 rounded-full absolute right-4 -top-2">
+                                {carts.length}
+                            </span>
+                        )}
                     </div>
 
                     <div className="btn-auth flex gap-x-3 ms-2">

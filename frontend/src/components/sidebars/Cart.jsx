@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { firstWordUppercase, rupiah } from "../../utils";
-import Sidebar from "./Sidebar";
 import { replaceCart } from "../../redux/reducers";
+import Sidebar from "./Sidebar";
+
+import { firstUppercase, rupiah } from "../../utils";
 
 const Cart = ({ onClick }) => {
     const { carts } = useSelector((state) => state.cart);
@@ -22,7 +23,7 @@ const Cart = ({ onClick }) => {
                 key={i}
                 className={`card flex gap-x-2 pb-3 ${
                     i != 0 && "pt-3"
-                } border-b border-b-lilac`}
+                } border-b border-b-lilac z-20`}
             >
                 <div className="card-image basis-1/5">
                     <img
@@ -44,7 +45,7 @@ const Cart = ({ onClick }) => {
                             <p className="text-xs text-neutral-400">
                                 Color
                                 <span className="text-neutral-900 font-semibold ms-1">
-                                    {/* {firstWordUppercase(cart.color)} */}
+                                    {firstUppercase(cart.color)}
                                 </span>
                             </p>
                         </div>
@@ -58,8 +59,20 @@ const Cart = ({ onClick }) => {
                     </div>
                     <div className="flex justify-between items-center text-sm text-neutral-900/50">
                         <div className="flex items-center">
-                            <p className="font-semibold text-neutral-900">
-                                {rupiah(cart.price)}
+                            <p className="text-neutral-900">
+                                {cart.discount ? (
+                                    <span className="font-bold">
+                                        {rupiah(
+                                            cart.price -
+                                                (cart.discount / 100) *
+                                                    cart.price
+                                        )}
+                                    </span>
+                                ) : (
+                                    <span className="font-bold">
+                                        {rupiah(cart.price)}
+                                    </span>
+                                )}
                             </p>
                             <i className="bx bx-x text-xs mx-1"></i>
                             <p>{cart.quantity}</p>

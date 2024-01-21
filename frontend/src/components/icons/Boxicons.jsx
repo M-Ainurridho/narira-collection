@@ -12,10 +12,10 @@ const Boxicons = ({
         <i
             className={`boxicons inline-block bx-fw bx ${
                 type === "solid" ? `bxs-${icon}` : `bx-${icon}`
-            } ${color ? color : "text-neutral-900"} ${
+            } ${color ? color : "text-neutral-900"}  ${
                 size ? `text-${size}` : "text-lg"
-            } ${translate ? translate : ""} cursor-${
-                cursor ? cursor : "auto"
+            } ${translate ? translate : ""} ${
+                cursor ? `cursor-${cursor}` : "cursor-auto"
             } ${style ? style : ""}`}
             onClick={onClick && onClick}
         ></i>

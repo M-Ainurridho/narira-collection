@@ -19,7 +19,7 @@ const BtnEvent = ({
             } ${border ? border : "border-0"} ${
                 contentPadding ? contentPadding : ""
             } ${hover ? hover : ""} ${style}`}
-            // onClick={onClick && onClick}
+            onClick={onClick && onClick}
         >
             {text}
         </button>

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { replaceCart } from "../../redux/reducers";
 import Sidebar from "./Sidebar";
 
-import { firstUppercase, rupiah } from "../../utils";
+import { firstUppercase, imgUrl, rupiah } from "../../utils";
 
 const Cart = ({ onClick }) => {
     const { carts } = useSelector((state) => state.cart);
@@ -27,7 +27,7 @@ const Cart = ({ onClick }) => {
             >
                 <div className="card-image basis-1/5">
                     <img
-                        src={`/src/assets/images/products/${cart.image}`}
+                        src={imgUrl("products", cart.image)}
                         alt="product-2"
                         className="w-full h-20 object-cover rounded-md"
                     />
@@ -74,6 +74,7 @@ const Cart = ({ onClick }) => {
                                     </span>
                                 )}
                             </p>
+                            <i className="bx bx-x text-xs me-1"></i>
                             <p>{cart.quantity}</p>
                         </div>
                     </div>

@@ -9,15 +9,12 @@ export const products = [
     {
         id: 1,
         name: "Baju Distro Custom",
-        images: ["product-1.jpg"],
-        colors: ["white", "black", "purple"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
         brand: "Distro",
         discount: 10,
         price: 250000,
-        stock: 10,
         availableItems: [
             {
                 image: ["product-1.jpg", "product-3.jpg"],
@@ -52,8 +49,6 @@ export const products = [
     {
         id: 2,
         name: "Baju Calvin Klein",
-        images: ["product-2.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -61,7 +56,6 @@ export const products = [
         brand: "Calvin Klein",
         discount: 0,
         price: 50000,
-        stock: 10,
         availableItems: [
             {
                 image: ["product-2.jpg"],
@@ -82,8 +76,6 @@ export const products = [
     {
         id: 3,
         name: "Celana Joger",
-        images: ["product-5.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -91,7 +83,6 @@ export const products = [
         brand: "Shafira",
         discount: 8,
         price: 125000,
-        stock: 10,
         availableItems: [
             {
                 image: ["product-5.jpg"],
@@ -112,8 +103,6 @@ export const products = [
     {
         id: 4,
         name: "Celana Pendek Remaja",
-        images: ["product-7.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -121,7 +110,6 @@ export const products = [
         brand: "Jeans Denim",
         discount: 0,
         price: 99000,
-        stock: 10,
         availableItems: [
             {
                 image: ["product-7.jpg"],
@@ -138,8 +126,6 @@ export const products = [
     {
         id: 5,
         name: "Celana Kulot Dengkul",
-        images: ["product-8.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -147,7 +133,6 @@ export const products = [
         brand: "Distro",
         discount: 5,
         price: 25000,
-        stock: 10,
         availableItems: [
             {
                 image: ["product-8.jpg"],
@@ -178,8 +163,6 @@ export const products = [
     {
         id: 6,
         name: "Baju Calvin Klein",
-        images: ["product-2.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -187,7 +170,6 @@ export const products = [
         brand: "Calvin Klein",
         discount: 0,
         price: 10000,
-        stock: 10,
         availableItems: [
             {
                 image: ["product-1.jpg"],
@@ -218,8 +200,6 @@ export const products = [
     {
         id: 7,
         name: "Gamis Abaya",
-        images: ["product-3.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -227,7 +207,6 @@ export const products = [
         brand: "Cass Elana",
         discount: 0,
         price: 45000,
-        stock: 10,
         availableItems: [
             {
                 image: ["product-1.jpg"],
@@ -258,8 +237,6 @@ export const products = [
     {
         id: 8,
         name: "Nike Jordan",
-        images: ["shoes-1.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -267,7 +244,6 @@ export const products = [
         brand: "Nike",
         discount: 25,
         price: 100000,
-        stock: 10,
         availableItems: [
             {
                 image: ["shoes-1.jpg"],
@@ -304,7 +280,6 @@ export const products = [
         brand: "Reebok",
         discount: 0,
         price: 960000,
-        stock: 10,
         availableItems: [
             {
                 image: ["shoes-2.jpg"],
@@ -372,14 +347,12 @@ export const products = [
     {
         id: 11,
         name: "Nike Stephen Curry Limited Edition",
-        images: ["shoes-4.jpg"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Sepatu & Sneakers",
         brand: "Nike",
         discount: 4,
         price: 10000000,
-        stock: 10,
         availableItems: [
             {
                 image: ["shoes-4.jpg", "product-6.jpg", "product-2.jpg"],
@@ -420,8 +393,6 @@ export const products = [
     {
         id: 12,
         name: "Converse Golden Star",
-        images: ["shoes-5.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -429,7 +400,6 @@ export const products = [
         brand: "Converse",
         discount: 20,
         price: 100000000,
-        stock: 10,
         availableItems: [
             {
                 image: ["shoes-5.jpg"],
@@ -463,8 +433,6 @@ export const bestseller = [
     {
         id: 1,
         name: "Baju Distro Custom",
-        images: ["product-1.jpg"],
-        colors: ["white", "black", "purple"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
         category: "Pakaian Pria",
@@ -506,8 +474,6 @@ export const bestseller = [
     {
         id: 2,
         name: "Baju Calvin Klein",
-        images: ["product-2.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -536,8 +502,6 @@ export const bestseller = [
     {
         id: 3,
         name: "Celana Joger",
-        images: ["product-5.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -566,8 +530,6 @@ export const bestseller = [
     {
         id: 4,
         name: "Celana Pendek Remaja",
-        images: ["product-7.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",
@@ -592,8 +554,6 @@ export const bestseller = [
     {
         id: 5,
         name: "Celana Kulot Dengkul",
-        images: ["product-8.jpg"],
-        colors: ["white", "black", "purple"],
         sizes: ["S", "M", "L", "XL"],
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam fugiat adipisci error mollitia distinctio quae totam doloremque debitis voluptatibus, consectetur eum, soluta quos ad numquam doloribus! Quasi, tempore cumque accusamus quae illum quam in reiciendis quia eum. Unde ex assumenda laborum officiis similique dicta illum nulla nisi corporis reprehenderit. Sit!",

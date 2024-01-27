@@ -50,9 +50,9 @@ const Cart = ({ onClick }) => {
                             </p>
                         </div>
                         <div>
-                            <i className="bx bx-heart text-xl me-1 cursor-pointer"></i>
+                            <i className="bx bx-heart text-2xl md:text-xl me-1 cursor-pointer"></i>
                             <i
-                                className="bx bxs-trash text-xl cursor-pointer"
+                                className="bx bxs-trash text-2xl md:text-xl cursor-pointer"
                                 onClick={() => deleteCart(cart)}
                             ></i>
                         </div>
@@ -74,14 +74,8 @@ const Cart = ({ onClick }) => {
                                     </span>
                                 )}
                             </p>
-                            <i className="bx bx-x text-xs mx-1"></i>
                             <p>{cart.quantity}</p>
                         </div>
-                        {/* <div className="bg-neutral-100 flex items-center rounded-md border">
-                            <i className="bx bx-minus bg-white py-1 px-2 text-neutral-400 hover:text-neutral-800  rounded-md cursor-pointer text-sm shadow"></i>
-                            <div className="quantity px-4">{cart.quantity}</div>
-                            <i className="bx bx-plus bg-white py-1 px-2 text-neutral-400 hover:text-neutral-800  rounded-md cursor-pointer text-sm shadow"></i>
-                        </div> */}
                     </div>
                 </div>
             </div>

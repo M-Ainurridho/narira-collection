@@ -32,7 +32,7 @@ const Home = () => {
                 <div className="section-title mb-2">
                     <h2 className="text-xl font-semibold">KATEGORI</h2>
                 </div>
-                <div className="grid grid-cols-3 lg:grid-cols-9 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2">
                     {categories.map((category, idx) => {
                         return (
                             <CardCategory

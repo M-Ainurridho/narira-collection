@@ -89,7 +89,7 @@ const Card = ({ item }) => {
                             item?.availableItems &&
                                 item.availableItems[0].image[0]
                         )}
-                        className="w-full h-56 object-cover object-center"
+                        className="w-full h-80 md:h-56 object-cover object-center"
                         alt={
                             item?.availableItems &&
                             item.availableItems[0].image[0]

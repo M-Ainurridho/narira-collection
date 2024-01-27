@@ -66,14 +66,20 @@ const ProductDetail = () => {
 
         startImgIndex > 0 ? setNextImg(true) : setNextImg(false);
 
-        if (window.innerWidth > 768) {
+        const windowSize = window.innerWidth;
+
+        if (windowSize >= 768) {
             images.length < 6
                 ? setPrevImg(false)
                 : (setPrevImg(true), (images = images.slice(0, 5)));
-        } else {
+        } else if (windowSize >= 576) {
             images.length < 5
                 ? setPrevImg(false)
                 : (setPrevImg(true), (images = images.slice(0, 4)));
+        } else {
+            images.length < 4
+                ? setPrevImg(false)
+                : (setPrevImg(true), (images = images.slice(0, 3)));
         }
 
         setSlideImages(images);
@@ -194,15 +200,15 @@ const ProductDetail = () => {
                     <Wrapper style="grid lg:grid-cols-2 gap-x-6 font-roboto">
                         <div className="product-images">
                             <img
-                                className="w-full object-cover object-center rounded-md h-600 md:h-900 lg:h-600"
+                                className="w-full object-cover object-center rounded-md h-auto md:max-h-600 lg:max-h-600"
                                 src={imgUrl(
                                     "products",
                                     currentWideImg && currentWideImg
                                 )}
-                                alt="product-detail"
+                                alt="wide-image"
                             />
 
-                            <div className="all-product-images grid grid-cols-4 md:grid-cols-5 gap-2 mt-3 relative">
+                            <div className="all-product-images grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-3 relative">
                                 {nextImg && (
                                     <Boxicons
                                         icon="chevron-left"

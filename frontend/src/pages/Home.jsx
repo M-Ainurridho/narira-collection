@@ -63,7 +63,7 @@ const Home = () => {
                             </Link>
                         </div>
 
-                        <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-3">
+                        <section className="grid grid-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-3">
                             {bestseller.map((item, i) => {
                                 return <Card key={i} item={item} />;
                             })}

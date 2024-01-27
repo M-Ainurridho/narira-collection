@@ -118,7 +118,7 @@ const ProductCategory = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="items grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
+                    <div className="items grid grid-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
                         {items.map((item, i) => {
                             return <Card key={i} item={item} />;
                         })}

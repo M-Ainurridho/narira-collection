@@ -37,13 +37,13 @@ const Cart = ({ onClick }) => {
                     <div className="flex justify-between items-center">
                         <div className="flex gap-x-3">
                             <p className="text-xs text-neutral-900/50">
-                                Size
+                                Ukuran
                                 <span className="text-neutral-900 font-semibold ms-1">
                                     {cart.size}
                                 </span>
                             </p>
                             <p className="text-xs text-neutral-400">
-                                Color
+                                Warna
                                 <span className="text-neutral-900 font-semibold ms-1">
                                     {firstUppercase(cart.color)}
                                 </span>
@@ -77,11 +77,11 @@ const Cart = ({ onClick }) => {
                             <i className="bx bx-x text-xs mx-1"></i>
                             <p>{cart.quantity}</p>
                         </div>
-                        <div className="bg-neutral-100 flex items-center rounded-md border">
+                        {/* <div className="bg-neutral-100 flex items-center rounded-md border">
                             <i className="bx bx-minus bg-white py-1 px-2 text-neutral-400 hover:text-neutral-800  rounded-md cursor-pointer text-sm shadow"></i>
                             <div className="quantity px-4">{cart.quantity}</div>
                             <i className="bx bx-plus bg-white py-1 px-2 text-neutral-400 hover:text-neutral-800  rounded-md cursor-pointer text-sm shadow"></i>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

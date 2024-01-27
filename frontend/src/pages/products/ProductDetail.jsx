@@ -200,7 +200,7 @@ const ProductDetail = () => {
                     <Wrapper style="grid lg:grid-cols-2 gap-x-6 font-roboto">
                         <div className="product-images">
                             <img
-                                className="w-full object-cover object-center rounded-md h-auto md:max-h-600 lg:max-h-600"
+                                className="w-full object-cover object-center rounded-md h-auto md:h-600 lg:max-h-600"
                                 src={imgUrl(
                                     "products",
                                     currentWideImg && currentWideImg
